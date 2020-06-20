@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
-
+const path = require('path')
+import FMMode from "frontmatter-markdown-loader/mode";
 export default {
   /*
   ** Nuxt rendering mode
@@ -71,5 +72,16 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    extend (config){
+      config.module.rules.push(
+        {
+          test: /\.md$/,
+          loader: "frontmatter-markdown-loader",
+          options: {
+            mode: [FMMode.VUE_COMPONENT]
+          }
+        }
+      )
+    },
   }
 }
