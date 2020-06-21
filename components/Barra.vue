@@ -1,13 +1,16 @@
 <template>
   <div>
     <v-navigation-drawer v-model="drawer" app clipped>
-      <v-list dense>
-        <v-subheader class="mt-4 grey--text text--darken-1">TEMAS:</v-subheader>
-        <v-list v-for="(item,index) in items" :key="index">
-          <v-list-item>
-            <v-list-item-title>{{index+1}}.- {{item.titulo}}</v-list-item-title>
-          </v-list-item>
-        </v-list>
+      <v-list>
+        <v-list-item v-for="([icon, text], index) in items" :key="index" link to="/poo">
+          <v-list-item-icon>
+            <v-icon>{{ icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content  >
+            <v-list-item-title>{{ text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -50,6 +53,11 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
       <v-spacer class="hidden-xs-only" />
+      <v-btn icon to="/">
+        <v-icon>
+          mdi-home
+        </v-icon>
+      </v-btn>
       <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" @click="cambiarModo()" icon>
         <v-icon>{{ modoDark?'mdi-white-balance-sunny':'mdi-brightness-4'}}</v-icon>
       </v-btn>
@@ -64,9 +72,9 @@ export default {
     drawer: true,
     modoDark:false,
     items:[
-        {titulo:"POO"},
-        {titulo:"Herencia"},
-        {titulo:"Polimorfismo"},
+        ['mdi-play', 'POO'],
+        ['mdi-text-box-outline', 'Objetos'],
+        ['mdi-play', 'Polimorfismo'],
     ]
   }),
   methods: {
