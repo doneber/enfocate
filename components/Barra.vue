@@ -22,7 +22,7 @@
       elevation="1"
       height="56"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="!inHome" />
       <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" icon>
         <v-icon size="35" :color="modoDark?'#005c99':'white'">mdi-cookie</v-icon>
       </v-btn>
