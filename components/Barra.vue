@@ -2,7 +2,7 @@
   <div>
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list>
-        <v-list-item v-for="([icon, text], index) in items" :key="index" link to="/poo">
+        <v-list-item v-for="([icon, text,to], index) in items" :key="index" link :to="to">
           <v-list-item-icon>
             <v-icon>{{ icon }}</v-icon>
           </v-list-item-icon>
@@ -72,9 +72,10 @@ export default {
     drawer: true,
     modoDark:false,
     items:[
-        ['mdi-play', 'POO'],
-        ['mdi-text-box-outline', 'Objetos'],
-        ['mdi-play', 'Polimorfismo'],
+        ['mdi-play', 'POO','/poo/intro'],
+        ['mdi-text-box-outline', 'Objetos','/poo/objetos'],
+        ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
+        ['mdi-play', 'Polimorfismo','/poo/polimorfismo'],
     ]
   }),
   methods: {
