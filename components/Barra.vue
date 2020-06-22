@@ -24,13 +24,13 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" icon>
-        <v-icon size="35" :color="modoDark?'#005c99':'white'">mdi-youtube</v-icon>
+        <v-icon size="35" :color="modoDark?'#005c99':'white'">mdi-cookie</v-icon>
       </v-btn>
       <v-toolbar-title
         v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs"
         class="mr-12 align-center"
       >
-        <span>Mr tech</span>
+        <span>Mr Cookie</span>
       </v-toolbar-title>
       <v-spacer />
       <v-text-field
