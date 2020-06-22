@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app clipped>
+    <v-navigation-drawer v-model="drawer" app clipped v-if="!inHome">
       <v-list>
         <v-list-item v-for="([icon, text,to], index) in items" :key="index" link :to="to">
           <v-list-item-icon>
@@ -70,12 +70,14 @@ export default {
     textoBuscador: "",
     showSearcher: true,
     drawer: true,
+    inHome: null,
     modoDark:false,
     items:[
         ['mdi-play', 'POO','/poo/intro'],
-        ['mdi-text-box-outline', 'Objetos','/poo/objetos'],
+        ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
+        ['mdi-text-box-outline', 'Clases','/poo/clases'],
         ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
-        ['mdi-play', 'Polimorfismo','/poo/polimorfismo'],
+        ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
     ]
   }),
   methods: {
@@ -91,6 +93,18 @@ export default {
   },
   updated() {
     this.$vuetify.theme.dark = this.modoDark;
-  }
+  },
+  created(){
+    this.inHome = this.$router.currentRoute.path == '/'?true:false;
+  },
+  watch:{
+    $route (to, from){
+        if(this.$router.currentRoute.path == '/')
+          this.inHome=true
+        else
+          this.inHome=false
+          
+    }
+  } 
 };
 </script>

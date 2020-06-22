@@ -1,6 +1,8 @@
 <template>
   <div>
     <p class="display-2">Bienvenido</p>
+    <v-row>
+      <v-col md="4">
           <v-card
             color="#385F73"
             dark
@@ -13,5 +15,8 @@
               <v-btn to="/poo" text>Curiosea ahora</v-btn>
             </v-card-actions>
           </v-card>
+      </v-col>
+    </v-row>
+
   </div>
 </template>

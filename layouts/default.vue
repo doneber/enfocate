@@ -3,7 +3,12 @@
     <barra />
     <v-main>
       <v-container>
-        <nuxt />
+        <v-row justify="center">
+          <v-col md="10">
+
+          <nuxt />
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>

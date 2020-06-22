@@ -8,7 +8,10 @@ Donde las filas de ***programas*** son <***nom***, ***tipo***, ***fecha***, ***t
 |--|--|
 | ***tipo*** | se refiere a si es con licencia o sin licencia |
 | ***fecha*** | tiene el formato de dd/mm/aaaa |.
+&nbsp;
 
+
+**Ejercicio:**
 
 Sea un objeto Sistema_Operativo y un objeto Programa
 - Instanciar un objeto Sistema Operativo y un objeto Programa, mostrar datos
