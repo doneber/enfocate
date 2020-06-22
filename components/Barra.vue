@@ -23,9 +23,10 @@
       height="56"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="!inHome" />
-      <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" icon>
+      <!-- <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" icon>
         <v-icon size="35" :color="modoDark?'#005c99':'white'">mdi-cookie</v-icon>
-      </v-btn>
+      </v-btn> -->
+      <v-img max-width="35px" class="mr-2" src="/icon.png" />
       <v-toolbar-title
         v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs"
         class="mr-12 align-center"
