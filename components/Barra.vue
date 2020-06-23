@@ -14,7 +14,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :dark="true"
+      dark
       app
       clipped-left
       :color="modoDark?'':'#003b63'"
@@ -28,10 +28,9 @@
       </v-btn> -->
       <v-img max-width="35px" class="mr-2" src="/icon.png" />
       <v-toolbar-title
-        v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs"
-        class="mr-12 align-center"
+        class="align-center hidden-xs-only"
       >
-        <span>Mr Cookie</span>
+        Mr Cookie
       </v-toolbar-title>
       <v-spacer />
       <v-text-field
@@ -54,12 +53,12 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
       <v-spacer class="hidden-xs-only" />
-      <v-btn icon to="/">
+      <v-btn icon to="/" v-if="!inHome">
         <v-icon>
           mdi-home
         </v-icon>
       </v-btn>
-      <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" @click="cambiarModo()" icon>
+      <v-btn v-if="!this.showSearcher && this.textoBuscador == ''" @click="cambiarModo()" icon>
         <v-icon>{{ modoDark?'mdi-white-balance-sunny':'mdi-brightness-4'}}</v-icon>
       </v-btn>
     </v-app-bar>
