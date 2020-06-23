@@ -2,7 +2,7 @@
   <v-app>
     <barra />
     <v-main>
-      <v-container>
+      <v-container style="min-height:100%">
         <v-row justify="center">
           <v-col md="10">
 
@@ -10,6 +10,17 @@
           </v-col>
         </v-row>
       </v-container>
+      <v-footer padless
+      :color="$vuetify.theme.dark?'':'#003b63'"
+      dark
+      >
+    <v-col
+      class="text-center"
+      cols="12"
+    >
+      {{ new Date().getFullYear() }} — <strong>Mr. Cookies</strong>
+    </v-col>
+  </v-footer>
     </v-main>
   </v-app>
 
