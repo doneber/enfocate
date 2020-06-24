@@ -36,7 +36,7 @@
       <v-spacer />
       <v-text-field
         clearable
-        v-if="!this.$vuetify.breakpoint.xs"
+        class="hidden-xs-only"
         placeholder="Buscar"
         single-line
         hide-details
