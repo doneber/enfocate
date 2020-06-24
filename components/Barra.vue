@@ -36,20 +36,14 @@
       <v-spacer />
       <v-text-field
         clearable
-        :click:clear="this.textoBuscador?this.textoBuscador:this.textoBuscador=''"
-        v-if="(this.showSearcher || !this.$vuetify.breakpoint.xs) || this.textoBuscador != ''"
-
-        @focus="mostrarBuscador()"
-        @blur="ocultarBuscador()"
+        v-if="!this.$vuetify.breakpoint.xs"
         placeholder="Buscar"
         single-line
         hide-details
-        v-model="textoBuscador"
         disabled
       />
       <v-btn
         disabled
-        v-if="(!this.showSearcher && !this.textoBuscador) || !this.$vuetify.breakpoint.xs"
         @click="mostrarBuscador()"
         icon
       >
