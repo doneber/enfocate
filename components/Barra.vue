@@ -28,7 +28,8 @@
       </v-btn> -->
       <v-img max-width="35px" class="mr-2" src="/icon.png" />
       <v-toolbar-title
-        class="align-center hidden-xs-only"
+        class="align-center"
+        v-show="!this.showSearcher || !this.$vuetify.breakpoint.xs"
       >
         Mr Cookie
       </v-toolbar-title>
@@ -58,7 +59,7 @@
           mdi-home
         </v-icon>
       </v-btn>
-      <v-btn v-if="!this.showSearcher && this.textoBuscador == ''" @click="cambiarModo()" icon>
+      <v-btn @click="cambiarModo()" icon>
         <v-icon>{{ modoDark?'mdi-white-balance-sunny':'mdi-brightness-4'}}</v-icon>
       </v-btn>
     </v-app-bar>
@@ -68,7 +69,7 @@
 export default {
   data: () => ({
     textoBuscador: "",
-    showSearcher: true,
+    showSearcher: false,
     drawer: true,
     inHome: null,
     modoDark:false,

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="display-2">Bienvenido</p>
+    <p class="display-2 text-center">Bienvenido</p>
     <v-row>
       <v-col md="4">
           <v-card
