@@ -1,7 +1,7 @@
 <template>
     <div>
         <p class="display-1 text-center font-weight-black">Programación Orientada a Objetos</p>
-        <p>En este apartado encontrarás una serie de documentos y/o videos relacionados con la materia de Algoritmos y Programación:</p>
+        <p>En este apartado encontrarás una serie de documentos y/o videos relacionados con la materia de Algoritmos y Programación</p>
 
         <p>Requisitos:</p>
     <v-list-item v-for="req in requisitos" :key="req">

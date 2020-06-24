@@ -1,15 +1,16 @@
 <template>
   <div>
     <v-navigation-drawer v-model="drawer" app clipped v-if="!inHome">
+      <v-subheader class="mt-4 grey--text font-weight-black">CONTENIDO:</v-subheader>
       <v-list>
         <v-list-item v-for="([icon, text,to], index) in items" :key="index" link :to="to">
-          <v-list-item-icon>
-            <v-icon>{{ icon }}</v-icon>
-          </v-list-item-icon>
 
           <v-list-item-content  >
-            <v-list-item-title>{{ text }}</v-list-item-title>
+            <v-list-item-title>{{index+1}}. {{ text }}</v-list-item-title>
           </v-list-item-content>
+          <v-list-item-icon class="mx-0">
+            <v-icon>{{ icon }}</v-icon>
+          </v-list-item-icon>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
