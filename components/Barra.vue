@@ -45,8 +45,10 @@
         single-line
         hide-details
         v-model="textoBuscador"
+        disabled
       />
       <v-btn
+        disabled
         v-if="(!this.showSearcher && !this.textoBuscador) || !this.$vuetify.breakpoint.xs"
         @click="mostrarBuscador()"
         icon
@@ -59,7 +61,7 @@
           mdi-home
         </v-icon>
       </v-btn>
-      <v-btn @click="cambiarModo()" icon>
+      <v-btn v-if="!this.showSearcher && this.textoBuscador == ''" @click="cambiarModo()" icon>
         <v-icon>{{ modoDark?'mdi-white-balance-sunny':'mdi-brightness-4'}}</v-icon>
       </v-btn>
     </v-app-bar>
@@ -69,7 +71,7 @@
 export default {
   data: () => ({
     textoBuscador: "",
-    showSearcher: false,
+    showSearcher: true,
     drawer: true,
     inHome: null,
     modoDark:false,
