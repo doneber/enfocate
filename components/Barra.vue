@@ -38,7 +38,7 @@
         clearable
         :click:clear="this.textoBuscador?this.textoBuscador:this.textoBuscador=''"
         v-if="(this.showSearcher || !this.$vuetify.breakpoint.xs) || this.textoBuscador != ''"
-        autofocus
+
         @focus="mostrarBuscador()"
         @blur="ocultarBuscador()"
         placeholder="Buscar"
