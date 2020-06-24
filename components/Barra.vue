@@ -71,7 +71,7 @@
 export default {
   data: () => ({
     textoBuscador: "",
-    showSearcher: true,
+    showSearcher: false,
     drawer: true,
     inHome: null,
     modoDark:false,
