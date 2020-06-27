@@ -67,6 +67,19 @@ export default {
       }
     }
   },
+
+  /**/
+  head: {
+    title: 'Enfocate',
+    htmlAttrs: {
+      lang: 'es',
+    },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'description', content: 'Área de aprendizaje colaborativo sobre informática' },
+    ],
+  },
+
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

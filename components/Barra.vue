@@ -32,7 +32,7 @@
         class="align-center"
         v-show="!this.showSearcher || !this.$vuetify.breakpoint.xs"
       >
-        Mr Cookie
+        Enfócate
       </v-toolbar-title>
       <v-spacer />
       <v-text-field
