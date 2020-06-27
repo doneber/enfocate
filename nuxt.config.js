@@ -23,6 +23,18 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  /* PWA*/
+  pwa: {
+    meta: {
+      title: 'Enfocate',
+      author: 'donEber',
+    },
+    manifest: {
+      name: 'Enfocate',
+      short_name: 'Enfocate',
+      lang: 'es',
+    },
+  },
   /*
   ** Global CSS
   */
