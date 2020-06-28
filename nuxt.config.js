@@ -17,7 +17,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: "description", property: "og:description", content: 'Área de aprendizaje colaborativo de informática', hid: "description" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -78,18 +78,6 @@ export default {
         }
       }
     }
-  },
-
-  /**/
-  head: {
-    title: 'Enfocate',
-    htmlAttrs: {
-      lang: 'es',
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'description', content: 'Área de aprendizaje colaborativo sobre informática' },
-    ],
   },
 
   /*

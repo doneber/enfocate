@@ -20,7 +20,6 @@
       <v-col md="4">
           <v-card
           disabled
-          to="/pf"
           :color="this.$vuetify.theme.dark?'grey darken-1':'grey lighten-1'"
           >
             <v-card-title class="">Programación Funcional</v-card-title>

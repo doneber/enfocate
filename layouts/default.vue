@@ -18,7 +18,7 @@
       class="text-center"
       cols="12"
     >
-      {{ new Date().getFullYear() }} — <strong>Mr. Cookies</strong>
+      {{ new Date().getFullYear() }} — <strong>Enfocate</strong>
     </v-col>
   </v-footer>
     </v-main>
