@@ -1,6 +1,6 @@
 # super-blog
 
-## Build Setup
+Área de aprendizaje colaborativo de informática
 
 ```bash
 # install dependencies
