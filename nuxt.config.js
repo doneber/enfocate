@@ -18,8 +18,8 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: "description", property: "og:description", content: 'Área de aprendizaje colaborativo de informática', hid: "description" },
-      { property: 'og:image', content:'/icon.png'},
-      { name: 'twitter:site', content: '@donEber98' },
+      { property: 'og:image', content:'/icon.png', hid: "og:image" },
+      { name: 'twitter:site', content: '@donEber98', hid: "twitter:site" },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
