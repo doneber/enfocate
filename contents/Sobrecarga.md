@@ -1,5 +1,6 @@
-## Sobrecarga de métodos y operadores
+# Sobrecarga de métodos y operadores
 
+Dada la el siguiete diagrama de clases: 
 <img width="100%" src="https://github.com/doneber/POO/blob/master/Resources/OS-Program.JPG?raw=true"/>
 
 
