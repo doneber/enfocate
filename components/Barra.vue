@@ -6,7 +6,7 @@
         <v-divider> </v-divider>
         <template v-for="([icon, text,to], index) in items">
 
-        <v-list-item :key="index" link :to="to" @click="drawer=true">
+        <v-list-item :key="'bar-item'+index" link :to="to" @click="drawer=true">
 
           <v-list-item-content  >
             <v-list-item-title>{{index+1}}. {{ text }}</v-list-item-title>
