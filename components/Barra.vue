@@ -18,6 +18,26 @@
        <v-divider :key="index"></v-divider>
         </template>
       </v-list>
+      <v-subheader class="mt-4 grey--text font-weight-black">Android:</v-subheader>
+        <v-list>
+        <v-divider> </v-divider>
+        <template v-for="([icon, text,to], index) in itemsAndroid">
+
+        <v-list-item :key="'bar-itemAndroid'+index" link :to="to" @click="drawer=true">
+
+          <v-list-item-content  >
+            <v-list-item-title>{{ text }}</v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-icon class="mx-0">
+            <v-icon>{{ icon }}</v-icon>
+          </v-list-item-icon> 
+          <v-list-item-icon class="mx-0">
+            <v-icon>mdi-text-box-outline</v-icon>
+          </v-list-item-icon>
+        </v-list-item>
+       <v-divider :key="index"></v-divider>
+        </template>
+      </v-list>
     </v-navigation-drawer>
     <v-app-bar
       dark
@@ -81,7 +101,11 @@ export default {
         ['mdi-text-box-outline', 'Clases','/poo/clases'],
         ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
         ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
-    ]
+    ],
+    itemsAndroid:[
+        ['mdi-play', 'Parte 1','/android/and01'],
+    ],
+
   }),
   methods: {
     mostrarBuscador() {

@@ -10,6 +10,23 @@
 3. Configuración  y creación del AVD (Android virtual Device)
 4. Hola mundo
 APK
+
+# POO
+
+<div style="position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;">
+
+<iframe width="560" height="315" style="position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;" src="https://www.youtube.com/embed/eQy7raP_-Mk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+
 ## 1. Instalación
 Para correr nuestro IDE android eclipse y desarrollor en Android necesitaremos de 2 programas:
 - JDK (descargarlo [aqui](https://mega.nz/file/sYMClaaZ#0tQ6VxvHXeHHhjchZVDWrmj5k2D8QcwLyyAGbmMHaI4))
@@ -74,17 +91,24 @@ Luego le damos en **start** seguido de un *Launch*y tendrémos nuestro celular v
 Para correr nuestro 1er programa simplemente hacemos lo siguiente:
 
 <img style="max-width:100%" src="https://github.com/doneber/POO/blob/master/Resources/android/clase01/run0.jpg?raw=true"/>
-## APK
 <br>
 
-Si por alguna razón misteriosa necesitaras el APK, puedes encontrarlo en:
 
 
-<img style="max-width:100%" src="https://github.com/doneber/POO/blob/master/Resources/android/clase01/elAPK.JPG?raw=true"/>
-Y luego de dar en *Aceptar* en alguna ventana, nuestra aplicación estara corriendo:
+Y luego de dar en **Aceptar** en alguna ventana, nuestra aplicación estara corriendo:
+
+
 <br>
 
 
 <img style="max-width:100%" src="https://github.com/doneber/POO/blob/master/Resources/android/clase01/run2.JPG?raw=true"/>
 
 <br>
+
+
+## APK
+
+Si por alguna razón misteriosa necesitaras el APK, puedes encontrarlo en:
+
+
+<img style="max-width:100%" src="https://github.com/doneber/POO/blob/master/Resources/android/clase01/elAPK.JPG?raw=true"/>
