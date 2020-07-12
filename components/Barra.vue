@@ -104,7 +104,7 @@ export default {
     ],
     itemsAndroid:[
         ['mdi-play', 'Parte 1','/android/and01'],
-        ['', 'Parte 1','/android/and02'],
+        ['', 'Parte 2','/android/and02'],
     ],
 
   }),
