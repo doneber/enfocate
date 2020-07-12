@@ -101,10 +101,12 @@ export default {
         ['mdi-text-box-outline', 'Clases','/poo/clases'],
         ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
         ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
+        ['mdi-text-box-outline', 'Persistencia','/poo/persistencia'],
     ],
     itemsAndroid:[
         ['mdi-play', 'Parte 1','/android/and01'],
         ['', 'Parte 2','/android/and02'],
+        ['', 'Parte 3','/android/and03'],
     ],
 
   }),
