@@ -118,6 +118,8 @@ Nos ubicaremos en el archivo MainActivity.java y lo abriremos
 
 
 Para este paso crearemos una función llamada **suma**:
+<div style="overflow-x:scroll;">
+
 ```java
 public  void  suma(View  vista){
     EditText  et1 =(EditText) findViewById(R.id.editText1);
@@ -132,6 +134,8 @@ public  void  suma(View  vista){
     resultado.setText(sumaStr);
 }
 ```
+
+</div>
 
 
 Tal como vemos en la imagen
