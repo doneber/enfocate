@@ -53,7 +53,7 @@ Lo primero que haremos es eliminar el texto que viene por defecto
 Luego cambiamos el layout por defecto haciendo click en cualquier parte de la previsualizacion de nuestra aplicación
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso02.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso02.jpg" />
 
 
 ### Paso 3 (Configuración del Layout)
@@ -62,7 +62,7 @@ Luego cambiamos el layout por defecto haciendo click en cualquier parte de la pr
 Y escogemos la orientación Vertical
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso03.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso03.jpg" />
 
 
 ### Paso 4 (EditText)
@@ -71,7 +71,7 @@ Y escogemos la orientación Vertical
 En la parte de la paleta de componentes veremos varios accesorios en diferentes carpetas (explóralos!). Para esta ocasión arrastraremos uno hacia la pantalla para poder usarlo
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso04.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso04.jpg" />
 
 
 Como haremos una sumadora, necesitaremos 2, asi que arrastra 2
@@ -81,7 +81,7 @@ Como haremos una sumadora, necesitaremos 2, asi que arrastra 2
 Tambien necesitaremos Botones
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso05.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso05.jpg" />
 
 
 ### Paso 6 (TextViews)
@@ -90,7 +90,7 @@ Tambien necesitaremos Botones
 Tambien necesitaremos un lugar para mostrar el resultado de la suma, entonces usaremos 
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso06.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso06.jpg" />
 
 
 
@@ -100,7 +100,7 @@ Tambien necesitaremos un lugar para mostrar el resultado de la suma, entonces us
 Algo que también queremos hacer es cambiar el texto por defecto, entonces en la parte derecha podremos hacerlo, remplazándolo por lo que queramos (en este caso nada)
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso07.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso07.jpg" />
 
 
 
@@ -111,7 +111,7 @@ Ahora debemos darle funcionalidad a nuestros componentes de android.
 Nos ubicaremos en el archivo MainActivity.java y lo abriremos
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso08.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso08.jpg" />
 
 
 ### Paso 9 (Creación de una función)
@@ -137,7 +137,7 @@ public  void  suma(View  vista){
 Tal como vemos en la imagen
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso09.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso09.jpg" />
 
 
 ### Paso 10 (Función a un botón)
@@ -151,7 +151,7 @@ android:onClick="suma"
 
 
 Tal como en la imagen:
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso10.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso10.jpg" />
 
 
 
@@ -160,4 +160,4 @@ Ya deberiamos poder correr y probar el programa.
 Haciendolo correr deberemos tener:
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso11.jpg)
+<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso11.jpg" />
