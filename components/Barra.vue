@@ -100,6 +100,7 @@ export default {
         ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
         ['mdi-text-box-outline', 'Clases','/poo/clases'],
         ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
+        ['mdi-text-box-outline', 'Comp. y Agreg. | ejercicio','/poo/agregacionycomposicion'],
         ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
         ['mdi-text-box-outline', 'Persistencia','/poo/persistencia'],
     ],
