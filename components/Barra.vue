@@ -102,7 +102,7 @@ export default {
         ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
         ['mdi-text-box-outline', 'Comp. y Agreg. | ejercicio','/poo/agregacionycomposicion'],
         ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
-        ['mdi-text-box-outline', 'Persistencia','/poo/persistencia'],
+        ['mdi-play', 'Persistencia','/poo/persistencia'],
     ],
     itemsAndroid:[
         ['mdi-play', 'Parte 1','/android/and01'],
