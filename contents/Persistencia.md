@@ -15,3 +15,16 @@
     width: 100%;
     height: 100%;" src="https://www.youtube.com/embed/lD2ONd8jTRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+<br>
+
+Explicamos la persistencia de objetos en Java a lo loco en 7 mins.
+
+Tareas pendientes:
+- Implementar un contacto como un Objeto
+- Refactorizar el código ( refactorizar: optimizar, mejorar, etc)
+- Agregar el método para modificar o eliminar
+
+<br>
+
+Código del ejemplo en:
+- [Código en Github](https://github.com/doneber/POO/tree/master/Peresistencia/Ejemplo%20video)
