@@ -1,6 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
 const path = require('path')
 import FMMode from "frontmatter-markdown-loader/mode";
+import MarkdownIt from 'markdown-it'
+import mip from 'markdown-it-prism'
+
+const md = new MarkdownIt({
+  html: true,
+  typographer: true
+})
+md.use(mip)
+
 export default {
   /*
   ** Nuxt rendering mode
@@ -41,6 +50,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/prism-material-light.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -93,7 +103,13 @@ export default {
           test: /\.md$/,
           loader: "frontmatter-markdown-loader",
           options: {
-            mode: [FMMode.VUE_COMPONENT]
+            mode: [FMMode.VUE_COMPONENT],
+            vue: {
+              root: "dynamicMarkdown"
+            },
+            markdown(body) {
+              return md.render(body)
+            }
           }
         }
       )

@@ -60,3 +60,12 @@ export default {
   }
 }
 </script>
+<style >
+  .v-application code {
+    background-color: #fafafa;
+    color: black;
+  }
+  img {
+    max-width: 100%;
+  }
+</style>

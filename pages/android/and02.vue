@@ -18,3 +18,9 @@
     }
   }
 </script>
+<style scoped>
+  .v-application code{
+    background-color: none;
+    color: none;
+  }
+</style>
