@@ -3,8 +3,8 @@
         <p class="display-1 text-center font-weight-black">Programación Orientada a Objetos</p>
         <p>En este apartado encontrarás una serie de documentos y/o videos relacionados con la materia de Algoritmos y Programación</p>
 
-        <p>Requisitos:</p>
-    <v-list-item v-for="req in requisitos" :key="req">
+        <p>Recomendaciones:</p>
+    <v-list-item v-for="req in recomendaciones" :key="req">
       <v-list-item-content>
         <v-list-item-title>{{req}}</v-list-item-title>
       </v-list-item-content>
@@ -28,12 +28,14 @@ export default {
   data: () => ({
     items:[
         ['mdi-play', 'POO','/poo/intro'],
-        ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
-        ['mdi-text-box-outline', 'Clases','/poo/clases'],
-        ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
-        ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
+          ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
+          ['mdi-text-box-outline', 'Clases','/poo/clases'],
+          ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
+          ['mdi-text-box-outline', 'Comp. y Agreg. | ejercicio','/poo/agregacionycomposicion'],
+          ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
+          ['mdi-play', 'Persistencia','/poo/persistencia'],
     ],
-    requisitos:[
+    recomendaciones:[
         'Conocimientos de programación básica',
     ]
   }),
