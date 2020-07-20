@@ -10,10 +10,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-footer padless
-      :color="$vuetify.theme.dark?'':'#003b63'"
-      dark
-      >
+      <v-footer padless>
     <v-col
       class="text-center"
       cols="12"

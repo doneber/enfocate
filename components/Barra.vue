@@ -20,10 +20,8 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      dark
       app
       clipped-left
-      :color="modoDark?'':'#003b63'"
       dense
       elevation="1"
       height="56"
@@ -85,9 +83,10 @@ export default {
           ['mdi-play', 'Persistencia','/poo/persistencia'],
       ]},
       android: {title:'Android', items: [
-        ['mdi-play', 'Parte 1','/android/and01'],
-        ['', 'Parte 2','/android/and02'],
-        ['', 'Parte 3','/android/and03'],
+        ['mdi-play', 'Instalación','/android/and01'],
+        ['', 'Sumadora App','/android/and02'],
+        ['', 'Activities y bundles','/android/and03'],
+        ['', 'Persistencia','/android/and04'],
       ]},
       home: {title:'Sobre la página', items:[
         ['', 'Información','/'],
@@ -126,7 +125,6 @@ export default {
   watch:{
       $route (to, from){
         let url = this.$router.currentRoute.path
-        console.log(url);
         if(url == '/')
           this.inHome=true
         else

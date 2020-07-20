@@ -19,12 +19,27 @@
       </v-col>
       <v-col md="4">
           <v-card
+          to="/android"
+          :color="this.$vuetify.theme.dark?'green darken-3':'green darken-2'"
+          dark
+          >
+            <v-card-title class="headline">Android</v-card-title>
+
+            <v-card-subtitle>Android básico con principiantes</v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn text>Curiosea ahora</v-btn>
+            </v-card-actions>
+          </v-card>
+      </v-col>
+      <v-col md="4">
+          <v-card
           disabled
           :color="this.$vuetify.theme.dark?'grey darken-1':'grey lighten-1'"
           >
-            <v-card-title class="">Programación Funcional</v-card-title>
+            <v-card-title class="">Prog. Funcional</v-card-title>
 
-            <v-card-subtitle>No disponible</v-card-subtitle>
+            <v-card-subtitle>Programación Funcional en Java</v-card-subtitle>
 
             <v-card-actions>
               <v-btn text>No disponible</v-btn>
