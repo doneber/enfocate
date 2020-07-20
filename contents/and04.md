@@ -9,22 +9,22 @@ description: |
   Vamos creando un proyecto en android con Persistencia de objetos con archivos
 ---
 
----
-## Miniproyecto parte 2
+# Miniproyecto parte 2
 - Clases serializadas
 - Permisos
 - Persistencia de archivos
 
 Primero hacemos uan vista en el `Activity_main.xml` como se ve en la imagen:
 
-![a](https://raw.githubusercontent.com/doneber/POO/master/Resources/android/clase04/layout.JPG)
+![Vistas](https://raw.githubusercontent.com/doneber/POO/master/Resources/android/clase04/layout.JPG)
 
 Ahora para la Persistencia de Objetos debemos tomar muy en cuenta ***los permisos de la app *** para poder crear y leer archivos.
 Para esto nos ubicaremos en el archivo `manifest.xml`
 ```xml
   <manifest  xmlns:android="http://schemas.android.com/apk/res/android" 
 			 package="com.example.snazzyapp">  
-			 <uses-permission  android:name="android.permission.INTERNET"/>
+			 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+       <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 			 <!-- other permissions go here -->
 			 <application ...> 
 			 </application>
@@ -68,7 +68,7 @@ Para esto necesitaremos de nuestra clase `ArchivoPersona.java`:
 ```java
 package com.example.myapplication;
 import android.os.Environment;
-import java.io.File*;
+import java.io.*;
 
 public class ArchivoPersona {
         private String nombre;
