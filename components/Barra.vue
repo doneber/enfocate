@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app clipped v-if="!inHome">
-      <v-subheader class="mt-4 grey--text font-weight-black">CONTENIDO:</v-subheader>
+    <v-navigation-drawer v-model="drawer" app clipped>
+      <v-subheader class="mt-4 grey--text font-weight-black">{{ items.title }}:</v-subheader>
       <v-list>
         <v-divider> </v-divider>
-        <template v-for="([icon, text,to], index) in items">
+        <template v-for="([icon, text,to], index) in items.items">
 
         <v-list-item :key="'bar-item'+index" link :to="to" @click="drawer=true">
 
@@ -13,26 +13,6 @@
           </v-list-item-content>
           <v-list-item-icon class="mx-0">
             <v-icon>{{ icon }}</v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-       <v-divider :key="index"></v-divider>
-        </template>
-      </v-list>
-      <v-subheader class="mt-4 grey--text font-weight-black">Android:</v-subheader>
-        <v-list>
-        <v-divider> </v-divider>
-        <template v-for="([icon, text,to], index) in itemsAndroid">
-
-        <v-list-item :key="'bar-itemAndroid'+index" link :to="to" @click="drawer=true">
-
-          <v-list-item-content  >
-            <v-list-item-title>{{ text }}</v-list-item-title>
-          </v-list-item-content>
-          <v-list-item-icon class="mx-0">
-            <v-icon>{{ icon }}</v-icon>
-          </v-list-item-icon> 
-          <v-list-item-icon class="mx-0">
-            <v-icon>mdi-text-box-outline</v-icon>
           </v-list-item-icon>
         </v-list-item>
        <v-divider :key="index"></v-divider>
@@ -48,13 +28,11 @@
       elevation="1"
       height="56"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="!inHome" />
-      <!-- <v-btn v-if="(!this.showSearcher && this.textoBuscador == '') || !this.$vuetify.breakpoint.xs" icon>
-        <v-icon size="35" :color="modoDark?'#005c99':'white'">mdi-cookie</v-icon>
-      </v-btn> -->
-      <v-img max-width="35px" class="mr-2" src="/icon.png" />
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
+      <v-img max-width="35px" class="mr-2" src="/icon.png" @click="goHome()" />
       <v-toolbar-title
         class="align-center"
+        @click="goHome()"
         v-show="!this.showSearcher || !this.$vuetify.breakpoint.xs"
       >
         Enfócate
@@ -95,23 +73,39 @@ export default {
     drawer: true,
     inHome: null,
     modoDark:false,
-    items:[
-        ['mdi-play', 'POO','/poo/intro'],
-        ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
-        ['mdi-text-box-outline', 'Clases','/poo/clases'],
-        ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
-        ['mdi-text-box-outline', 'Comp. y Agreg. | ejercicio','/poo/agregacionycomposicion'],
-        ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
-        ['mdi-play', 'Persistencia','/poo/persistencia'],
-    ],
-    itemsAndroid:[
+    items:[],
+    allItems: {
+      poo: { title:'POO', items:[
+          ['mdi-play', 'POO','/poo/intro'],
+          ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
+          ['mdi-text-box-outline', 'Clases','/poo/clases'],
+          ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],
+          ['mdi-text-box-outline', 'Comp. y Agreg. | ejercicio','/poo/agregacionycomposicion'],
+          ['mdi-text-box-outline', 'Herencia','/poo/herencia'],
+          ['mdi-play', 'Persistencia','/poo/persistencia'],
+      ]},
+      android: {title:'Android', items: [
         ['mdi-play', 'Parte 1','/android/and01'],
         ['', 'Parte 2','/android/and02'],
         ['', 'Parte 3','/android/and03'],
-    ],
-
+      ]},
+      home: {title:'Sobre la página', items:[
+        ['', 'Información','/'],
+      ]},
+    },
   }),
   methods: {
+    goHome(){
+      this.$router.push('/')
+    },
+    calculaDrawer(url){
+      if(url == '/')
+        this.items =this.allItems["home"]
+      else if(url.includes('/poo',0))
+        this.items =this.allItems["poo"]
+      else if(url.includes('/android',0))
+        this.items =this.allItems["android"]
+    },
     mostrarBuscador() {
       this.showSearcher = true;
     },
@@ -127,15 +121,18 @@ export default {
   },
   created(){
     this.inHome = this.$router.currentRoute.path == '/'?true:false;
+    this.calculaDrawer(this.$router.currentRoute.path)
   },
   watch:{
-    $route (to, from){
-        if(this.$router.currentRoute.path == '/')
+      $route (to, from){
+        let url = this.$router.currentRoute.path
+        console.log(url);
+        if(url == '/')
           this.inHome=true
         else
           this.inHome=false
-          
+        this.calculaDrawer(url)
+      }
     }
-  } 
-};
+  }
 </script>
