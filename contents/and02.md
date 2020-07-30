@@ -1,4 +1,14 @@
-# Sumadora
+---
+name: 'Aplicación de Sumas'
+title: Aplicación de Sumas
+year: 7 Julio 2020
+color: 'green'
+trans: 'Sum App'
+id: 'android02'
+description: |
+  Crearemos una simple aplicación donde manejaremos distitos componenentes utilizados en Android
+---
+
 
 ### Objetivo
 > Crear una aplicación Android que nos permita sumar 2 números
@@ -24,10 +34,10 @@ Si aún no sabes como, puedes ver esta seccion
 Hacemos un diseño de la pantalla (es decir, botones, espacios de texto, espacios para recibir texto etc)
 
 
-### Sobre la interfaz
+# Sobre la interfaz
 
 
-<img style="max-width:100%" src="https://github.com/doneber/POO/blob/master/Resources/clase02/estructura01.jpg?raw=true" />
+![](https://github.com/doneber/POO/blob/master/Resources/clase02/estructura01.jpg?raw=true)
 
 
 1. (Rojo) Ahí encontraremos una paleta de diferentes componentes que tenemos disponibles para nuestra APP
@@ -37,84 +47,84 @@ Hacemos un diseño de la pantalla (es decir, botones, espacios de texto, espacio
 5. (Lila) Esta parte nos guiará para degubbear nuestro programa y ver otros datos de la app
 
 
-### Paso 1
+## Paso 1
 
 Lo primero que haremos es eliminar el texto que viene por defecto
 
 
 
-<img style="max-width:100%" src="https://github.com/doneber/POO/blob/master/Resources/clase02/paso01.jpg?raw=true" />
+![](https://github.com/doneber/POO/blob/master/Resources/clase02/paso01.jpg?raw=true)
 
 
 
-### Paso 2
+## Paso 2
 
 
 Luego cambiamos el layout por defecto haciendo click en cualquier parte de la previsualizacion de nuestra aplicación
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso02.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso02.jpg)
 
 
-### Paso 3 (Configuración del Layout)
+## Paso 3 (Configuración del Layout)
 
 
 Y escogemos la orientación Vertical
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso03.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso03.jpg)
 
 
-### Paso 4 (EditText)
+## Paso 4 (EditText)
 
 
 En la parte de la paleta de componentes veremos varios accesorios en diferentes carpetas (explóralos!). Para esta ocasión arrastraremos uno hacia la pantalla para poder usarlo
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso04.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso04.jpg)
 
 
 Como haremos una sumadora, necesitaremos 2, asi que arrastra 2
 
-### Paso 5 (Button)
+## Paso 5 (Button)
 
 Tambien necesitaremos Botones
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso05.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso05.jpg)
 
 
-### Paso 6 (TextViews)
+## Paso 6 (TextViews)
 
 
 Tambien necesitaremos un lugar para mostrar el resultado de la suma, entonces usaremos 
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso06.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso06.jpg)
 
 
 
-### Paso 7 (Editar la propiedad)
+## Paso 7 (Editar la propiedad)
 
 
 Algo que también queremos hacer es cambiar el texto por defecto, entonces en la parte derecha podremos hacerlo, remplazándolo por lo que queramos (en este caso nada)
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso07.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso07.jpg)
 
 
 
 Y con eso tendriamos algo para defendernos
-## 3. Desarrollo de la lógica
+# Desarrollo de la lógica del programa
 Ahora debemos darle funcionalidad a nuestros componentes de android.
-### Paso 8 (Abramos el archivo .java)
+## Paso 8 (Abramos el archivo .java)
 Nos ubicaremos en el archivo MainActivity.java y lo abriremos
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso08.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso08.jpg)
 
 
-### Paso 9 (Creación de una función)
+## Paso 9 (Creación de una función)
 
 
 Para este paso crearemos una función llamada **suma**:
@@ -134,15 +144,13 @@ public  void  suma(View  vista){
 }
 ```
 
-
-
 Tal como vemos en la imagen
 
 
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso09.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso09.jpg)
 
 
-### Paso 10 (Función a un botón)
+## Paso 10 (Función a un botón)
 
 
 Ahora volvamos al archivo .xml y hagamos el siguiente cambio en la parte que dice `Button` .
@@ -151,15 +159,12 @@ Ahora volvamos al archivo .xml y hagamos el siguiente cambio en la parte que dic
 android:onClick="suma"
 ```
 
-
 Tal como en la imagen:
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso10.jpg" />
 
-
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso10.jpg)
 
 Y listo!
 Ya deberiamos poder correr y probar el programa.
 Haciendolo correr deberemos tener:
 
-
-<img style="max-width:100%" src="https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso11.jpg" />
+![](https://raw.githubusercontent.com/doneber/POO/master/Resources/clase02/paso11.jpg)

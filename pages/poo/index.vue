@@ -1,5 +1,7 @@
 <template>
     <div>
+      <v-container class="padding-blog">
+
         <p class="display-1 text-center font-weight-black">Programación Orientada a Objetos</p>
         <p>En este apartado encontrarás una serie de documentos y/o videos relacionados con la materia de Algoritmos y Programación</p>
 
@@ -21,13 +23,14 @@
             </v-list-item-icon>
             </v-list-item>
         </v-list>
+  </v-container>
     </div>
 </template>
 <script>
 export default {
   data: () => ({
     items:[
-        ['mdi-play', 'POO','/poo/intro'],
+      ['mdi-play', 'POO','/poo/intro'],
           ['mdi-text-box-outline', 'Abstración','/poo/abstraccion'],
           ['mdi-text-box-outline', 'Clases','/poo/clases'],
           ['mdi-text-box-outline', 'Sobrecarga | ejercicio','/poo/sobrecarga'],

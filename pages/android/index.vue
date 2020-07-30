@@ -1,5 +1,6 @@
 <template>
     <div>
+            <v-container class="padding-blog">
         <p class="display-1 text-center font-weight-black">Programación en Android</p>
         <p>En este apartado encontrarás una serie de documentos y/o videos relacionados con la programación de aplicaciones android, usaremos tanto el editor Eclipse Android, como Android Studio </p>
 
@@ -22,19 +23,20 @@
             </v-list-item-icon>
             </v-list-item>
         </v-list>
+  </v-container>
     </div>
 </template>
 <script>
 export default {
   data: () => ({
     items:[
-        ['mdi-play', 'Instalación','/android/and01'],
+      ['mdi-play', 'Instalación','/android/and01'],
         ['', 'Sumadora App','/android/and02'],
         ['', 'Activities y bundles','/android/and03'],
         ['', 'Persistencia','/android/and04'],
     ],
     recomendaciones:[
-        'Conocimientos de programación básica',
+      'Conocimientos de programación básica',
         'Nociones de programación orientada a objetos',
     ]
   }),

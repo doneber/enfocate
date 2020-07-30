@@ -1,4 +1,15 @@
-# Persistencia de Objetos!
+---
+name: 'Persistencia'
+title: Persistencia
+year: 21 julio 2020
+color: 'green'
+trans: 'Persistencia'
+id: 'poo07'
+description: |
+  Si bien la persistencia no es un pilar de la POO, este concepto nos ayudará a entender como guardar nuestros datos.
+--- 
+
+## Persistencia de Objetos
 
 ¿Cansado de escribir tus datos por teclado?
 ¿El tiempo se hace corto en el examen por haces esas malditas pruebas?

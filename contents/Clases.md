@@ -1,7 +1,19 @@
+---
+name: 'Clases en POO'
+title: Clases en POO
+year: 7 junio 2020
+color: 'green'
+trans: 'POO Class'
+id: 'poo03'
+description: |
+  Para comprender la POO debemos de entender que rayos son estas famosas 'clases'
+---
+
 ## Clases
+
 Una especie de plantilla, prototipo donde determinamos sus atributos y métodos
 
-### Objetos
+## Objetos
 
 Los objetos son entidades que tienen un determinado “estado”, “comportamiento (método)” e “identidad”:
 

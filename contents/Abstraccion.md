@@ -1,3 +1,14 @@
+---
+name: 'Abstraccion en POO'
+title: Abstraccion en POO
+year: 2 junio 2020
+color: 'green'
+trans: 'Abstraction'
+id: 'poo01'
+description: |
+  Para entender la POO nos sumergiremos en el mundo de lo abstracto
+---
+
 ## Abstraccion
 En la abstracción nos importa **que vamos a hacer** y no tanto el **como lo haremos**
 Cuando trabajamos con clases abstractas son clases que definen algo no muy específico

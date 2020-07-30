@@ -58,4 +58,7 @@ export default {
   img {
     max-width: 100%;
   }
+  .padding-blog{
+    padding-left:9%; padding-right:9%;
+  }
 </style>

@@ -48,8 +48,3 @@
     }
   }
 </script>
-<style>
-  .padding-blog{
-    padding-left:9%; padding-right:9%
-  }
-</style>

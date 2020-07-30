@@ -1,7 +1,18 @@
-# Sobrecarga de métodos y operadores
+---
+name: 'Sobrecarga'
+title: Sobrecarga
+year: 28 junio 2020
+color: 'green'
+trans: 'Sobrecarga'
+id: 'poo04'
+description: |
+  Veremos la sobrecarga tambien conocida como Polimorfismo en la POO
+---
+
+## Ejercicio:
 
 Dada la el siguiete diagrama de clases: 
-<img width="100%" src="https://github.com/doneber/POO/blob/master/Resources/OS-Program.JPG?raw=true"/>
+![](https://github.com/doneber/POO/blob/master/Resources/OS-Program.JPG?raw=true)
 
 
 Donde las filas de ***programas*** son <***nom***, ***tipo***, ***fecha***, ***tamaño***> donde:

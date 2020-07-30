@@ -1,10 +1,10 @@
 ---
 name: 'Miniproyecto en Android 2'
-title: Creacion de proyecto con Android
+title: Creacion de proyecto con Android 2
 year: 20 Julio 2020
 color: 'green'
-trans: 'Create a proyect with android'
-id: 'miniproyect-android'
+trans: 'Create a proyect with android 2'
+id: 'miniproyect-android2'
 description: |
   Vamos creando un proyecto en android con Persistencia de objetos con archivos
 ---
