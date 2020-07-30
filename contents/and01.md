@@ -1,4 +1,13 @@
-# Hola mundo en Android
+---
+name: 'Primeros pasos en ANDROID'
+title: Primeros pasos en ANDROID
+year: 2 Julio 2020
+color: 'green'
+trans: 'First step in Android'
+id: 'android01'
+description: |
+  Es este capitulo haremos la instalación y creación de un proyecto android básico
+---
 
 ### Recomendaciones:
 1. Conocimientos de programación básica
@@ -11,7 +20,7 @@
 4. Hola mundo
 APK
 
-# POO
+# Empecemos con Android
 
 <div style="position: relative;
     padding-bottom: 56.25%;
@@ -25,7 +34,7 @@ APK
     height: 100%;" src="https://www.youtube.com/embed/eQy7raP_-Mk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-
+<br>
 
 ## 1. Instalación
 Para correr nuestro IDE android eclipse y desarrollor en Android necesitaremos de 2 programas:

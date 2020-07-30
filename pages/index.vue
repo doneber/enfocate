@@ -1,5 +1,9 @@
 <template>
   <div>
+          <v-container>
+        <v-row justify="center">
+          <v-col md="10">
+
     <p class="display-2 text-center">Bienvenido</p>
     <v-row>
       <v-col md="4">
@@ -48,6 +52,8 @@
       </v-col>
 
     </v-row>
-
+          </v-col>
+        </v-row>
+      </v-container>
   </div>
 </template>
