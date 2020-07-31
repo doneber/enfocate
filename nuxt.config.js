@@ -1,9 +1,16 @@
 import colors from 'vuetify/es5/util/colors'
 const path = require('path')
+const fs = require('fs')
 import FMMode from "frontmatter-markdown-loader/mode";
 import MarkdownIt from 'markdown-it'
 import mip from 'markdown-it-prism'
 
+function getMDPaths(type) {
+  const files = fs.readdirSync(path.resolve(__dirname, 'contents', type));
+  return files.filter(fileName => path.extname(fileName) === '.md')
+                .map(fileName => `${type}/${path.parse(fileName).name}`)
+
+}
 const md = new MarkdownIt({
   html: true,
   typographer: true
@@ -101,9 +108,10 @@ export default {
       config.module.rules.push(
         {
           test: /\.md$/,
-          loader: "frontmatter-markdown-loader",
+          loader: 'frontmatter-markdown-loader',
+          include: path.resolve(__dirname, 'contents'),
           options: {
-            mode: [FMMode.VUE_COMPONENT],
+            mode: [FMMode.VUE_RENDER_FUNCTIONS, FMMode.VUE_COMPONENT],
             vue: {
               root: "dynamicMarkdown"
             },
@@ -114,5 +122,10 @@ export default {
         }
       )
     },
+  },
+  generate: {
+    routes: []
+    .concat(getMDPaths('poo'))
+    .concat(getMDPaths('android'))
   }
 }
