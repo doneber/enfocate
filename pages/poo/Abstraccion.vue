@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import fm from "@/contents/abstraccion.md"
+  import fm from "@/contents/Abstraccion.md"
 
   export default {
     async asyncData(){
