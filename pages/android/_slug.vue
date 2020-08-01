@@ -1,20 +1,23 @@
 <template>
-    <div>
-      <v-sheet :color="this.$vuetify.theme.dark?'grey darken-4':'grey lighten-4'">
-      <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-4']" class="py-5">
+  <div>
+    <v-sheet :color="this.$vuetify.theme.dark?'grey darken-4':'grey lighten-4'">
+      <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']" class="py-5">
         <p class="display-2 font-weight-black">{{ title }}</p>
-        <p><v-icon>mdi-clock</v-icon> {{year}}</p>
+        <p>
+          <v-icon>mdi-clock</v-icon>
+          {{year}}
+        </p>
         <p>{{description}}</p>
       </v-container>
-      </v-sheet>
-      <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-4']">
-        <DynamicMarkdown
-          :render-func="renderFunc"
-          :static-render-funcs="staticRenderFuncs"
-          :extra-component="extraComponent"
-        />
-      </v-container>
-    </div>
+    </v-sheet>
+    <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']">
+      <DynamicMarkdown
+        :render-func="renderFunc"
+        :static-render-funcs="staticRenderFuncs"
+        :extra-component="extraComponent"
+      />
+    </v-container>
+  </div>
 </template>
 <script lang="js">
   import DynamicMarkdown from "~/components/DynamicMarkdown.vue"
