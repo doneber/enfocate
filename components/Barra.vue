@@ -71,7 +71,7 @@ export default {
     showSearcher: false,
     drawer: true,
     inHome: null,
-    modoDark:false,
+    modoDark:true,
     items:[],
     allItems: {
       poo: { title:'POO', items:[
