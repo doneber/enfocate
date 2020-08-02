@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet :color="this.$vuetify.theme.dark?'grey darken-4':'grey lighten-4'">
+    <v-sheet :color="this.$vuetify.theme.dark?'grey darken-3':'grey lighten-3'">
       <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']" class="py-5">
         <p class="display-2 font-weight-black">{{ title }}</p>
         <p>

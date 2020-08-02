@@ -21,6 +21,7 @@
     </v-navigation-drawer>
     <v-app-bar
       app
+      color="pikachu"
       clipped-left
       dense
       elevation="1"

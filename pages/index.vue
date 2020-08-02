@@ -29,7 +29,7 @@
           >
             <v-card-title class="headline">Android</v-card-title>
 
-            <v-card-subtitle>Android básico con principiantes</v-card-subtitle>
+            <v-card-subtitle>Android básico para principiantes</v-card-subtitle>
 
             <v-card-actions>
               <v-btn text>Curiosea ahora</v-btn>

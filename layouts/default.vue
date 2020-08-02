@@ -52,6 +52,16 @@ export default {
   background-color: #fafafa;
   color: black;
 }
+.theme--dark.v-application {
+  background: #212121;
+  color: rgb(245, 245, 245)
+}
+.theme--dark.v-sheet {
+  color: rgb(240, 240, 240)
+}
+.theme--light.v-application{
+  background: #FAFAFA;
+}
 img {
   max-width: 100%;
 }
@@ -62,8 +72,8 @@ img {
 dynamicMarkdown p {
   text-align: justify;
 }
-* {
-  font-size: 18px;
+p {
+  font-size: 17.5px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 </style>
