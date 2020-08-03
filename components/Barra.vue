@@ -181,6 +181,9 @@ export default {
   created() {
     this.inHome = this.$router.currentRoute.path == "/" ? true : false;
     this.calculaDrawer(this.$router.currentRoute.path);
+    if (this.$vuetify.breakpoint.xs) {
+      this.drawer=false
+    }
   },
   mounted() {},
   watch: {
