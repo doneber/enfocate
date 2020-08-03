@@ -37,16 +37,17 @@
         Enfócate
       </v-toolbar-title>
       <v-spacer />
-      <v-text-field
+     <v-text-field
         clearable
-        class="hidden-xs-only"
+        v-if="this.showSearcher || !this.$vuetify.breakpoint.xs"
+        @blur="ocultarBuscador"
         placeholder="Buscar"
         single-line
         hide-details
-        disabled
+        :autofocus="showSearcher"
+        v-model="textoBuscador"
       />
       <v-btn
-        disabled
         @click="mostrarBuscador()"
         icon
       >
@@ -58,7 +59,7 @@
           mdi-home
         </v-icon>
       </v-btn>
-      <v-btn v-if="!this.showSearcher && this.textoBuscador == ''" @click="cambiarModo()" icon>
+      <v-btn v-if="!this.showSearcher || !this.$vuetify.breakpoint.xs" @click="cambiarModo()" icon>
         <v-icon>{{ modoDark?'mdi-white-balance-sunny':'mdi-brightness-4'}}</v-icon>
       </v-btn>
     </v-app-bar>
@@ -106,11 +107,13 @@ export default {
       else if(url.includes('/android',0))
         this.items =this.allItems["android"]
     },
-    mostrarBuscador() {
+    mostrarBuscador(e) {
+      console.log(e);
       this.showSearcher = true;
     },
     ocultarBuscador() {
       this.showSearcher = false;
+      this.textoBuscador = ''
     },
     cambiarModo(){
         this.modoDark = !this.modoDark
