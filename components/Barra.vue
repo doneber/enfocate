@@ -24,14 +24,14 @@
         class="align-center"
         @click="goHome()"
         :class="[!showSearcher?'':'hidden-xs-only']"
-      >Enfócate</v-toolbar-title>
+      >Enfocate</v-toolbar-title>
       <v-spacer class="hidden-xs-only" />
       <div class="padre">
         <v-text-field
           clearable
           :class="[showSearcher?'':'hidden-xs-only']"
           placeholder="Buscar"
-          @blur="ocultarBuscador"
+          @blur="textoBuscador==''?(showSearcher = false)"
           hide-details
           :autofocus="showSearcher"
           v-model="textoBuscador"
