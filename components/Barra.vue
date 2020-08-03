@@ -31,13 +31,13 @@
           clearable
           :class="[showSearcher?'':'hidden-xs-only']"
           placeholder="Buscar"
-          @blur="textoBuscador==''?(showSearcher = false)"
+          @blur="ocultarBuscador"
           hide-details
           :autofocus="showSearcher"
           v-model="textoBuscador"
         />
         <v-card
-          v-click-outside="ocultarBuscador"
+          v-click-outside="ocultarTodoElBuscador"
           v-if="textoBuscador"
           class="hijo"
           ma-0
@@ -50,7 +50,7 @@
               v-for="([icon,nom, link],index) in searcFinded"
               :key="index"
               :to="link"
-              @click="ocultarBuscador()"
+              @click="ocultarTodoElBuscador()"
             >
               <v-list-item-content>
                 <v-list-item-title v-text="nom">{{ nom }}</v-list-item-title>
@@ -163,7 +163,11 @@ export default {
     mostrarBuscador() {
       this.showSearcher = true;
     },
-    ocultarBuscador() {
+    ocultarBuscador(){
+      if (this.textoBuscador=='')
+        this.showSearcher = false;
+    },
+    ocultarTodoElBuscador() {
       this.showSearcher = false;
       this.textoBuscador = "";
     },
