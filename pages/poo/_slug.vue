@@ -1,21 +1,30 @@
 <template>
   <div>
-    <v-sheet :color="this.$vuetify.theme.dark?'grey darken-3':'grey lighten-3'">
-      <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']" class="py-5">
-        <p class="display-2 font-weight-black">{{ title }}</p>
-        <p>
-          <v-icon>mdi-clock</v-icon>
-          {{year}}
-        </p>
-        <p>{{description}}</p>
+    <v-sheet>
+      <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']" class="pb-5">
+        <v-card color="primary" class="mt-0">
+          <v-card-text class="pt-1">
+            <p class="display-2 font-weight-black mb-0">{{ title }}</p>
+            <p class="my-1">
+              <v-icon>mdi-clock</v-icon>
+              {{year}}
+            </p>
+            <p class="my-1">{{description}}</p>
+
+          </v-card-text>
+        </v-card>
       </v-container>
     </v-sheet>
-    <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']">
-      <DynamicMarkdown
-        :render-func="renderFunc"
-        :static-render-funcs="staticRenderFuncs"
-        :extra-component="extraComponent"
-      />
+    <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-2']">
+      <v-card color="primaryLight" class="mt-0">
+        <v-card-text class="pa-5">
+          <DynamicMarkdown
+            :render-func="renderFunc"
+            :static-render-funcs="staticRenderFuncs"
+            :extra-component="extraComponent"
+          />
+        </v-card-text>
+      </v-card>
     </v-container>
   </div>
 </template>

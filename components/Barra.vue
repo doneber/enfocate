@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app clipped>
+    <v-navigation-drawer color="primary" v-model="drawer" app clipped>
       <v-subheader class="mt-4 grey--text font-weight-black">{{ items.title }}:</v-subheader>
       <v-list>
         <v-divider></v-divider>
@@ -17,11 +17,12 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app color="pikachu" clipped-left dense elevation="1" height="56">
+    <v-app-bar app clipped-left dense elevation="1" height="56" dark color="primaryDark">
       <v-app-bar-nav-icon @click="drawer = !drawer" />
       <v-img max-width="35px" class="mr-2" src="/icon.png" @click="goHome()" />
       <v-toolbar-title
         class="align-center"
+        style="font-family: cursive; font-weight: bold;;"
         @click="goHome()"
         :class="[!showSearcher?'':'hidden-xs-only']"
       >Enfocate</v-toolbar-title>
@@ -37,6 +38,8 @@
           v-model="textoBuscador"
         />
         <v-card
+          :light="!this.$vuetify.theme.dark?true:false"
+          color="primary"
           v-click-outside="ocultarTodoElBuscador"
           v-if="textoBuscador"
           class="hijo"
@@ -45,7 +48,7 @@
           elevation="6"
           width="100%"
         >
-          <v-list>
+          <v-list color="primary">
             <v-list-item
               v-for="([icon,nom, link],index) in searcFinded"
               :key="index"
