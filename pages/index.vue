@@ -46,7 +46,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-btn fixed dark fab bottom right color="deep-orange" style="bottom:1em; right:1em">
+    <v-btn fixed dark fab bottom right color="deep-orange lighten-1" style="bottom:1em; right:1em">
       <v-icon>mdi-help</v-icon>
     </v-btn>
   </div>

@@ -53,7 +53,7 @@ img {
 }
 .v-card__text p{
   margin-top: .9em; 
-  line-height : 1.5em;
+  line-height : 1.4em;
 }
 ul > li, ol > li {
   font-size: 1.18em;

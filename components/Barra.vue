@@ -22,7 +22,7 @@
       <v-img max-width="35px" class="mr-2" src="/icon.png" @click="goHome()" />
       <v-toolbar-title
         class="align-center"
-        style="font-family: cursive; font-weight: bold;;"
+        style="font-weight: bold; font-size : 1.65em;"
         @click="goHome()"
         :class="[!showSearcher?'':'hidden-xs-only']"
       >Enfocate</v-toolbar-title>
