@@ -2,11 +2,11 @@
   <v-app>
     <barra />
     <v-main>
-      <nuxt style="min-height:96%" />
+      <nuxt style="min-height:100%" />
       <v-footer padless>
         <v-col class="text-center" cols="12">
           {{ new Date().getFullYear() }} —
-          <strong>@donEber98</strong>
+          <strong>@Enfocate</strong>
         </v-col>
       </v-footer>
     </v-main>
