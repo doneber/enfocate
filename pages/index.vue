@@ -22,6 +22,7 @@
               </v-card>
             </v-col>
           </v-row>
+          <br>
           <p>I/2020</p>
           <v-row>
             <v-col v-for="(course, index) in courses" md="4" :key="index+'course'">
@@ -57,7 +58,7 @@ export default {
         description: "Programación Estructurada",
         colorDark: "blue-grey darken-1",
         colorLight: "blue-grey",
-        link: "",
+        link: "/pEstructurada",
         dark: true,
         disabled: false,
       },
@@ -66,7 +67,7 @@ export default {
         description: "Programacion Orientada a Objetos",
         colorDark: "blue-grey darken-2",
         colorLight: "blue-grey darken-1",
-        link: "",
+        link: "/pOO2",
         dark: true,
         disabled: false,
       },
@@ -75,7 +76,7 @@ export default {
         description: "Estructura de Datos",
         colorDark: "blue-grey darken-3",
         colorLight: "blue-grey darken-2",
-        link: "",
+        link: "/eDatos",
         dark: true,
         disabled: false,
       },
