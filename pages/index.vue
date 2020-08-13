@@ -1,44 +1,41 @@
 <template>
   <div>
-    <v-container style="position: relative">
+    <v-container>
       <v-row justify="center">
         <v-col md="10">
           <p class="display-2 text-center">Bienvenido</p>
+          <p>II/2020 | Programación</p>
           <v-row>
-            <v-col md="4">
-              <v-card to="/poo" color="#385F73" dark>
-                <v-card-title class="headline">POO</v-card-title>
-
-                <v-card-subtitle>Programación Orientada a Objetos</v-card-subtitle>
-
-                <v-card-actions>
-                  <v-btn text>Curiosea ahora</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-col>
-            <v-col md="4">
+            <v-col v-for="(course, index) in paradigmCourses" md="4" :key="index+'course'">
               <v-card
-                to="/android"
-                :color="this.$vuetify.theme.dark?'green darken-3':'green darken-2'"
-                dark
+                style="min-height:100%"
+                :to="course.link"
+                :color="darkMode?course.colorDark:course.colorLight"
+                :dark="course.dark"
+                :disabled="course.disabled"
               >
-                <v-card-title class="headline">Android</v-card-title>
-
-                <v-card-subtitle>Android básico para principiantes</v-card-subtitle>
-
+                <v-card-title class="headline">{{ course.title }}</v-card-title>
+                <v-card-text class>{{course.description}}</v-card-text>
                 <v-card-actions>
                   <v-btn text>Curiosea ahora</v-btn>
                 </v-card-actions>
               </v-card>
             </v-col>
-            <v-col md="4">
-              <v-card disabled :color="this.$vuetify.theme.dark?'grey darken-1':'grey lighten-1'">
-                <v-card-title class>Prog. Funcional</v-card-title>
-
-                <v-card-subtitle>Programación Funcional en Java</v-card-subtitle>
-
+          </v-row>
+          <p>I/2020</p>
+          <v-row>
+            <v-col v-for="(course, index) in courses" md="4" :key="index+'course'">
+              <v-card
+                style="min-height:100%"
+                :to="course.link"
+                :color="darkMode?course.colorDark:course.colorLight"
+                :dark="course.dark"
+                :disabled="course.disabled"
+              >
+                <v-card-title class="headline">{{ course.title }}</v-card-title>
+                <v-card-text class>{{course.description}}</v-card-text>
                 <v-card-actions>
-                  <v-btn text>No disponible</v-btn>
+                  <v-btn text>Curiosea ahora</v-btn>
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -51,3 +48,72 @@
     </v-btn>
   </div>
 </template>
+<script>
+export default {
+  data: () => ({
+    paradigmCourses: [
+      {
+        title: "Estructurada",
+        description: "Programación Estructurada",
+        colorDark: "blue-grey darken-1",
+        colorLight: "blue-grey",
+        link: "",
+        dark: true,
+        disabled: false,
+      },
+      {
+        title: "Orientada a Objetos",
+        description: "Programacion Orientada a Objetos",
+        colorDark: "blue-grey darken-2",
+        colorLight: "blue-grey darken-1",
+        link: "",
+        dark: true,
+        disabled: false,
+      },
+      {
+        title: "Estructura de Datos",
+        description: "Estructura de Datos",
+        colorDark: "blue-grey darken-3",
+        colorLight: "blue-grey darken-2",
+        link: "",
+        dark: true,
+        disabled: false,
+      },
+    ],
+    courses: [
+      {
+        title: "POO (I/2020)",
+        description: "Programación Orientada a Objetos",
+        colorDark: "grey darken-3",
+        colorLight: "",
+        link: "/poo",
+        dark: false,
+        disabled: false,
+      },
+      {
+        title: "Android",
+        description: "Android básico para principiantes",
+        colorDark: "green darken-4",
+        colorLight: "green darken-3",
+        link: "/android",
+        dark: true,
+        disabled: false,
+      },
+      {
+        title: "Prog. Funcional",
+        description: "Programación Funcional, conceptos",
+        colorDark: "grey darken-2",
+        colorLight: "grey",
+        link: "/",
+        dark: true,
+        disabled: true,
+      },
+    ],
+  }),
+  computed: {
+    darkMode() {
+      return this.$vuetify.theme.dark;
+    },
+  },
+};
+</script>
