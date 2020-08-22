@@ -64,4 +64,7 @@ p {
   font-size: 1.25em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.v-application code {
+  font-size: 90%;
+}
 </style>
