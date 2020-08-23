@@ -25,6 +25,7 @@ export default {
 .v-application code {
   background-color: grey;
   color: whitesmoke;
+  font-size: 95%;
 }
 .v-application pre code {
   background-color: #2d2d2d;
@@ -33,10 +34,13 @@ export default {
 .theme--dark.v-application {
   /* background: #263238; */
   background: #212121;
-  color: rgb(245, 245, 245)
+  color: rgb(249, 249, 249)
 }
 .theme--dark.v-sheet {
-  color: rgb(240, 240, 240)
+  color: rgb(245, 245, 245)
+}
+.v-application a {
+    color: inherit;
 }
 .theme--light.v-application{
   /* background: #FAFAFA; */
@@ -63,8 +67,5 @@ ul > li, ol > li {
 p {
   font-size: 1.25em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.v-application code {
-  font-size: 90%;
 }
 </style>

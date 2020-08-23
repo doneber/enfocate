@@ -348,7 +348,6 @@ body > *:first-child {
   code, tt {
     margin: 0 2px;
     padding: 0 5px;
-    white-space: nowrap;
     border-radius: 3px;
   }
   
