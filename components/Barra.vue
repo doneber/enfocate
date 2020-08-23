@@ -4,13 +4,13 @@
       <v-subheader class="mt-4 grey--text font-weight-black">{{ items.title }}:</v-subheader>
       <v-list>
         <v-divider></v-divider>
-        <template v-for="([icon, text,to], index) in items.items">
-          <v-list-item :key="'bar-item'+index" link :to="to">
+        <template v-for="(item, index) in items.items">
+          <v-list-item :key="'bar-item'+index" link :to="item.to">
             <v-list-item-content>
-              <v-list-item-title>{{index+1}}. {{ text }}</v-list-item-title>
+              <v-list-item-title>{{index+1}}. {{ item.title }}</v-list-item-title>
             </v-list-item-content>
             <v-list-item-icon class="mx-0">
-              <v-icon>{{ icon }}</v-icon>
+              <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
           </v-list-item>
           <v-divider :key="index"></v-divider>
@@ -50,13 +50,13 @@
         >
           <v-list color="primary">
             <v-list-item
-              v-for="([icon,nom, link],index) in searcFinded"
+              v-for="(item,index) in searcFinded"
               :key="index"
-              :to="link"
+              :to="item.to"
               @click="ocultarTodoElBuscador()"
             >
               <v-list-item-content>
-                <v-list-item-title v-text="nom">{{ nom }}</v-list-item-title>
+                <v-list-item-title v-text="item.title">{{ item.title }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -75,6 +75,7 @@
   </div>
 </template>
 <script>
+import path from "path";
 export default {
   data: () => ({
     textoBuscador: "",
@@ -87,26 +88,64 @@ export default {
       poo: {
         title: "POO",
         items: [
-          ["mdi-play", "POO", "/poo/intro"],
-          ["mdi-text-box-outline", "Abstracción", "/poo/abstraccion"],
-          ["mdi-text-box-outline", "Clases", "/poo/clases"],
-          ["mdi-text-box-outline", "Sobrecarga | ejercicio", "/poo/sobrecarga"],
-          [
-            "mdi-text-box-outline",
-            "Comp. y Agreg. | ejercicio",
-            "/poo/agregacionycomposicion",
-          ],
-          ["mdi-text-box-outline", "Herencia", "/poo/herencia"],
-          ["mdi-play", "Persistencia", "/poo/persistencia"],
+          { icon: "mdi-play", title: "POO", to: "/poo/intro" },
+          {
+            icon: "mdi-text-box-outline",
+            title: "Abstracción",
+            to: "/poo/abstraccion",
+          },
+          { icon: "mdi-text-box-outline", title: "Clases", to: "/poo/clases" },
+          {
+            icon: "mdi-text-box-outline",
+            title: "Sobrecarga | ejercicio",
+            to: "/poo/sobrecarga",
+          },
+          {
+            icon: "mdi-text-box-outline",
+            title: "Comp. y Agreg. | ejercicio",
+            to: "/poo/agregacionycomposicion",
+          },
+          {
+            icon: "mdi-text-box-outline",
+            title: "Herencia",
+            to: "/poo/herencia",
+          },
+          { icon: "mdi-play", title: "Persistencia", to: "/poo/persistencia" },
         ],
       },
       android: {
         title: "Android",
         items: [
-          ["mdi-play", "Instalación", "/android/and01"],
-          ["", "Sumadora App", "/android/and02"],
-          ["", "Activities y bundles", "/android/and03"],
-          ["", "Persistencia", "/android/and04"],
+          { icon: "mdi-play", title: "Instalación", to: "/android/and01" },
+          { icon: "", title: "Sumadora App", to: "/android/and02" },
+          { icon: "", title: "Activities y bundles", to: "/android/and03" },
+          { icon: "", title: "Persistencia", to: "/android/and04" },
+        ],
+      },
+      estructuraDeDatos: {
+        title: "Estructura de Datos",
+        items: [
+          { icon: "mdi-text-box-outline", title: "Introduccion", to: "/eDatos/01" },
+          { icon: "mdi-text-box-outline", title: "Pilas", to: "/eDatos/02" },
+          { icon: "mdi-code-tags", title: "Pilas <code>", to: "/eDatos/03" },
+          { icon: "mdi-text-box-outline", title: "Colas", to: "/eDatos/04" },
+          { icon: "mdi-code-tags", title: "Colas <code>", to: "/eDatos/05" },
+          { icon: "mdi-text-box-outline", title: "Listas", to: "/eDatos/06" },
+          { icon: "mdi-code-tags", title: "Listas simples normal", to: "/eDatos/07" },
+          {
+            icon: "mdi-code-tags",
+            title: "Listas simples circular",
+            to: "/eDatos/08",
+          },
+          { icon: "mdi-code-tags", title: "Listas Dobles normal", to: "/eDatos/09" },
+          {
+            icon: "mdi-code-tags",
+            title: "Listas Dobles circular",
+            to: "/eDatos/10",
+          },
+          { icon: "mdi-text-box-outline", title: "Recursividad", to: "/eDatos/11" },
+          { icon: "mdi-text-box-outline", title: "Arboles", to: "/eDatos/12" },
+          { icon: "mdi-code-tags", title: "Arboles <code>", to: "/eDatos/13" },
         ],
       },
       home: { title: "Sobre la página", items: [["", "Información", "/"]] },
@@ -116,13 +155,14 @@ export default {
     searcFinded() {
       return this.allItems["poo"]["items"]
         .concat(this.allItems["android"]["items"])
+        .concat(this.allItems["estructuraDeDatos"]["items"])
         .filter(
           (item) =>
             this.LevenshteinDistance(
-              item[1].toUpperCase(),
+              item.title.toUpperCase(),
               this.textoBuscador.toUpperCase()
             ) < 3 ||
-            item[1].toUpperCase().includes(this.textoBuscador.toUpperCase())
+            item.title.toUpperCase().includes(this.textoBuscador.toUpperCase())
         );
     },
   },
@@ -160,15 +200,15 @@ export default {
     calculaDrawer(url) {
       if (url == "/") this.items = this.allItems["home"];
       else if (url.includes("/poo", 0)) this.items = this.allItems["poo"];
+      else if (url.includes("/eDatos", 0)) this.items = this.allItems["estructuraDeDatos"];
       else if (url.includes("/android", 0))
         this.items = this.allItems["android"];
     },
     mostrarBuscador() {
       this.showSearcher = true;
     },
-    ocultarBuscador(){
-      if (this.textoBuscador=='')
-        this.showSearcher = false;
+    ocultarBuscador() {
+      if (this.textoBuscador == "") this.showSearcher = false;
     },
     ocultarTodoElBuscador() {
       this.showSearcher = false;
@@ -185,7 +225,7 @@ export default {
     this.inHome = this.$router.currentRoute.path == "/" ? true : false;
     this.calculaDrawer(this.$router.currentRoute.path);
     if (this.$vuetify.breakpoint.xs) {
-      this.drawer=false
+      this.drawer = false;
     }
   },
   mounted() {},
