@@ -148,6 +148,31 @@ export default {
           { icon: "mdi-code-tags", title: "Arboles <code>", to: "/eDatos/13" },
         ],
       },
+      programacionEstructurada: {
+        title: "Programacion Estructurada",
+        items: [
+          {icon:'', title: 'Introducción', to:'/pEstructurada/01'},
+          {icon:'', title: '¿Que es un algoritmo? | Algoritmos y caracteristicas', to:'/pEstructurada/02'},
+          {icon:'', title: 'Variables, constantes y tipos de Datos', to:'/pEstructurada/03'},
+          {icon:'', title: 'Datos de Entrada y Salida', to:'/pEstructurada/04'},
+          {icon:'', title: 'Operaciones aritmeticos (+, -, *, /,  %)', to:'/pEstructurada/05'},
+          {icon:'', title: 'Etapas de resolucion de problemas', to:'/pEstructurada/06'},
+          {icon:'', title: 'Estructura If', to:'/pEstructurada'},
+          {icon:'', title: 'Operadores relacionales (mayor, menor igual, distinto)', to:'/pEstructurada'},
+          {icon:'', title: 'Operadores lógicos (&&, ||, !)', to:'/pEstructurada'},
+          {icon:'', title: 'Ejercicios con IF', to:'/pEstructurada'},
+          {icon:'', title: 'Estructura Switch', to:'/pEstructurada'},
+          {icon:'', title: 'Ejercicios con Switch', to:'/pEstructurada'},
+          {icon:'', title: 'Sentencia While', to:'/pEstructurada'},
+          {icon:'', title: 'Ejercicios con While', to:'/pEstructurada'},
+          {icon:'', title: 'Sentencia For', to:'/pEstructurada'},
+          {icon:'', title: 'Ejercicios con For', to:'/pEstructurada'},
+          {icon:'', title: 'Funciones y Procedimientos', to:'/pEstructurada'},
+          {icon:'', title: 'Strings', to:'/pEstructurada'},
+          {icon:'', title: 'Arreglos', to:'/pEstructurada'},
+        ],
+      },
+
       home: { title: "Sobre la página", items: [["", "Información", "/"]] },
     },
   }),
@@ -201,6 +226,7 @@ export default {
       if (url == "/") this.items = this.allItems["home"];
       else if (url.includes("/poo", 0)) this.items = this.allItems["poo"];
       else if (url.includes("/eDatos", 0)) this.items = this.allItems["estructuraDeDatos"];
+      else if (url.includes("/pEstructurada", 0)) this.items = this.allItems["programacionEstructurada"];
       else if (url.includes("/android", 0))
         this.items = this.allItems["android"];
     },
