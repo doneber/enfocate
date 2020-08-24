@@ -22,7 +22,7 @@
               </v-card>
             </v-col>
           </v-row>
-          <br>
+          <br />
           <p>I/2020</p>
           <v-row>
             <v-col v-for="(course, index) in courses" md="4" :key="index+'course'">
@@ -44,7 +44,33 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-btn fixed dark fab bottom right color="deep-orange lighten-1" style="bottom:1em; right:1em">
+    <v-dialog v-model="dialog" max-width="500">
+      <v-card light>
+        <v-card-title></v-card-title>
+        <v-card-text>
+          <p>¿De que trata esta app?</p>
+          <ul>
+            <li>Simplemente te da una breve expliación de diferentes temas de Programación quiza te interese</li>
+          </ul>
+          <p>¿Como puedo instalar esta web app?</p>
+          <ul>
+            <li>Deber agregarlo a tu celular click a 'Agregar a mi pantalla de Inicio' (o algo así)</li>
+            <li>Si estas en desktop entonces en la parte superior de tu navegador te aparecerá el signo (+), el cual te permitirá instalarlo en tu compu</li>
+          </ul>
+          TIP: Recuerda usar el boton menu arriba a la izquierda todo el tiempo. El tema Light, etc
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <v-btn
+      fixed
+      dark
+      fab
+      bottom
+      right
+      color="deep-orange lighten-1"
+      style="bottom:1em; right:1em"
+      @click="dialog=true"
+    >
       <v-icon>mdi-help</v-icon>
     </v-btn>
   </div>
@@ -52,6 +78,7 @@
 <script>
 export default {
   data: () => ({
+    dialog: false,
     paradigmCourses: [
       {
         title: "Estructurada",
