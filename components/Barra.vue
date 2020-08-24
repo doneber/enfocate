@@ -173,7 +173,7 @@ export default {
         ],
       },
 
-      home: { title: "Sobre la página", items: [["", "Información", "/"]] },
+      home: { title: "Sobre la página", items: [{icon:"mdi-information-outline", title:"Información", to:"/nosotros"}] },
     },
   }),
   computed: {
