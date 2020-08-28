@@ -172,7 +172,27 @@ export default {
           {icon:'', title: 'Arreglos', to:'/pEstructurada'},
         ],
       },
-
+      programacionOrientadaObjetos2: {
+        title: "POO",
+        items: [
+          {icon: 'mdi-text-box-outline', title: 'Introduccion', to:'/pOO2/01'},
+          {icon: 'mdi-text-box-outline', title: 'Que es POO', to:'/pOO2/02'},
+          {icon: 'mdi-text-box-outline', title: 'Que es un OBJETO?', to:'/pOO2/03'},
+          {icon: 'mdi-text-box-outline', title: 'ABSTRACCIÓN y Clases', to:'/pOO2/04'},
+          {icon: '', title: 'Diagramas de clase UML', to:'/pOO2/'},
+          {icon: '', title: 'Implementación de nuestras clases en código', to:'/pOO2/'},
+          {icon: '', title: 'Constructores y Destructores', to:'/pOO2/'},
+          {icon: '', title: 'ENCAPSULACION, Getters y Setters', to:'/pOO2/'},
+          {icon: '', title: 'Sobrecarga de Métodos', to:'/pOO2/'},
+          {icon: '', title: 'Sobrecarga de Operadores', to:'/pOO2/'},
+          {icon: '', title: 'Herencia simple', to:'/pOO2/'},
+          {icon: '', title: 'Herencia multiple', to:'/pOO2/'},
+          {icon: '', title: 'Agregación', to:'/pOO2/'},
+          {icon: '', title: 'Composición', to:'/pOO2/'},
+          {icon: '', title: 'Excepciones', to:'/pOO2/'},
+          {icon: '', title: 'Persistencia de Objetos', to:'/pOO2/'},
+        ],
+      },
       home: { title: "Sobre la página", items: [{icon:"mdi-information-outline", title:"Información", to:"/nosotros"}] },
     },
   }),
@@ -181,6 +201,8 @@ export default {
       return this.allItems["poo"]["items"]
         .concat(this.allItems["android"]["items"])
         .concat(this.allItems["estructuraDeDatos"]["items"])
+        .concat(this.allItems["programacionEstructurada"]["items"])
+        .concat(this.allItems["programacionOrientadaObjetos2"]["items"])
         .filter(
           (item) =>
             this.LevenshteinDistance(
@@ -227,6 +249,7 @@ export default {
       else if (url.includes("/poo", 0)) this.items = this.allItems["poo"];
       else if (url.includes("/eDatos", 0)) this.items = this.allItems["estructuraDeDatos"];
       else if (url.includes("/pEstructurada", 0)) this.items = this.allItems["programacionEstructurada"];
+      else if (url.includes("/pOO2", 0)) this.items = this.allItems["programacionOrientadaObjetos2"];
       else if (url.includes("/android", 0))
         this.items = this.allItems["android"];
     },
