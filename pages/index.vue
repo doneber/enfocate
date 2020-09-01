@@ -94,7 +94,7 @@ export default {
         description: "Programacion Orientada a Objetos",
         colorDark: "blue-grey darken-2",
         colorLight: "blue-grey darken-1",
-        link: "/pOO2",
+        link: "/poo2",
         dark: true,
         disabled: false,
       },

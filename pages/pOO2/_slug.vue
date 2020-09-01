@@ -32,7 +32,7 @@
   import DynamicMarkdown from "~/components/DynamicMarkdown.vue"
   export default {
     async asyncData ({params, app}) {
-      const fileContent = await import(`~/contents/pOO2/${params.slug}.md`)
+      const fileContent = await import(`~/contents/poo2/${params.slug}.md`)
       const attr = fileContent.attributes
       return {
         name: params.slug,
