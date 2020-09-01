@@ -97,13 +97,13 @@ export default {
         //   success: colors.green.accent3
         // },
         dark: {
-          primary: '#FF7043',
+          primary: '#BDBDBD',
           primaryMiddle: '#2f2f2f',
           primaryDark: colors.grey.darken4,
           primaryLight: colors.grey.darken3,
         },
         light: {
-          // primary: '#',
+          primary: '#212121',
           primaryMiddle: colors.blueGrey.lighten5,
           primaryDark: colors.blueGrey.darken3,
           primaryLight: colors.grey.lighten4,
