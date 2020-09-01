@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']">
-      <p class='display-1 text-center font-weight-black'>Programación Orientada a Opbejos</p>
+      <p class='display-1 text-center font-weight-black'>Programación Orientada a Objetos</p>
       <p>Esta serie de documentos serán una introducción a la programación en general. Se abarcarán conceptos básicos</p>
 
       <p>Recomendaciones:</p>

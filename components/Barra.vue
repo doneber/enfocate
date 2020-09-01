@@ -4,16 +4,46 @@
       <v-subheader class="mt-4 grey--text font-weight-black">{{ items.title }}:</v-subheader>
       <v-list>
         <v-divider></v-divider>
-        <template v-for="(item, index) in items.items">
-          <v-list-item :key="'bar-item'+index" link :to="item.to">
-            <v-list-item-content>
-              <v-list-item-title>{{index+1}}. {{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-icon class="mx-0">
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
+        <template v-for="item in items.items">
+          <v-list-group
+            v-if="item.items && item.items.length > 0"
+            :key="item.title"
+            v-model="item.active"
+            :prepend-icon="item.action"
+            no-action
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="subItem in item.items"
+              :key="subItem.title"
+              :to="subItem.to"
+            >
+              <v-list-item-icon class="mr-2">
+                <v-icon>{{subItem.icon}}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="subItem.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+          <v-list-item
+            v-else
+            :key="item.title"
+            :to="item.to"
+          >
+            <v-list-item-icon class="mr-4">
+                <v-icon>{{item.icon}}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
           </v-list-item>
-          <v-divider :key="index"></v-divider>
+          <v-divider :key="item.title"></v-divider>
         </template>
       </v-list>
     </v-navigation-drawer>
@@ -88,13 +118,18 @@ export default {
       poo: {
         title: "POO",
         items: [
-          { icon: "mdi-play", title: "POO", to: "/poo/intro" },
+          { icon: "mdi-play", 
+            title: "POO", 
+            to: "/poo/intro" 
+          },
           {
             icon: "mdi-text-box-outline",
             title: "Abstracción",
             to: "/poo/abstraccion",
           },
-          { icon: "mdi-text-box-outline", title: "Clases", to: "/poo/clases" },
+          { icon: "mdi-text-box-outline", 
+            title: "Clases", 
+            to: "/poo/clases" },
           {
             icon: "mdi-text-box-outline",
             title: "Sobrecarga | ejercicio",
@@ -110,7 +145,9 @@ export default {
             title: "Herencia",
             to: "/poo/herencia",
           },
-          { icon: "mdi-play", title: "Persistencia", to: "/poo/persistencia" },
+          { icon: "mdi-play",
+            title: "Persistencia", 
+            to: "/poo/persistencia" },
         ],
       },
       android: {
@@ -172,7 +209,7 @@ export default {
           {icon:'', title: 'Arreglos', to:'/pEstructurada'},
         ],
       },
-      programacionOrientadaObjetos2: {
+      poo2: {
         title: "POO",
         items: [
           {icon: 'mdi-text-box-outline', title: 'Introduccion', to:'/poo2/01'},
@@ -202,7 +239,7 @@ export default {
         .concat(this.allItems["android"]["items"])
         .concat(this.allItems["estructuraDeDatos"]["items"])
         .concat(this.allItems["programacionEstructurada"]["items"])
-        .concat(this.allItems["programacionOrientadaObjetos2"]["items"])
+        .concat(this.allItems["poo2"]["items"])
         .filter(
           (item) =>
             this.LevenshteinDistance(
@@ -248,7 +285,7 @@ export default {
       if (url == "/") this.items = this.allItems["home"];
       else if (url.includes("/eDatos", 0)) this.items = this.allItems["estructuraDeDatos"];
       else if (url.includes("/pEstructurada", 0)) this.items = this.allItems["programacionEstructurada"];
-      else if (url.includes("/poo2", 0)) this.items = this.allItems["programacionOrientadaObjetos2"];
+      else if (url.includes("/poo2", 0)) this.items = this.allItems["poo2"];
       else if (url.includes("/poo", 0)) this.items = this.allItems["poo"];
       else if (url.includes("/android", 0))
         this.items = this.allItems["android"];
