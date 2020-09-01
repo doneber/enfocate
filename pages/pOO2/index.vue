@@ -10,7 +10,7 @@
       </ul>
       <br>
       <p>Contenido:</p>
-      <v-card color='primary' class='elevation-1'>
+      <v-card color="primaryMiddle" class='elevation-1'>
         <v-list-item v-for='(item, index) in items' :key='index' link :to='item.to'>
           <v-list-item-content>
             <v-list-item-title>{{index+1}}. {{ item.title }}</v-list-item-title>

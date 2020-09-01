@@ -2,7 +2,7 @@
   <div>
     <v-sheet>
       <v-container :class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']" class="pb-5">
-        <v-card color="primary" class="mt-2">
+        <v-card color="primaryMiddle" class="mt-2">
           <v-card-text class="pt-1">
             <p class="display-2 font-weight-black mt-2">{{ title }}</p>
             <p class="my-1">

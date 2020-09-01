@@ -57,8 +57,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/prism-material-light.css',
-    '@/assets/css/md-styles.css'
+    '@/assets/css/prism-material-light.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -88,7 +87,8 @@ export default {
       dark: true,
       themes: {
         // blueGrey: {
-        //   primary: colors.blueGrey.darken4,
+          // primary: '#',
+        //   primaryMiddle: colors.blueGrey.darken4,
         //   accent: colors.grey.darken3,
         //   primaryDark: colors.blueGrey.darken3,
         //   info: colors.teal.lighten1,
@@ -97,12 +97,14 @@ export default {
         //   success: colors.green.accent3
         // },
         dark: {
-          primary: '#2f2f2f',
+          primary: '#FF7043',
+          primaryMiddle: '#2f2f2f',
           primaryDark: colors.grey.darken4,
           primaryLight: colors.grey.darken3,
         },
         light: {
-          primary: colors.blueGrey.lighten5,
+          // primary: '#',
+          primaryMiddle: colors.blueGrey.lighten5,
           primaryDark: colors.blueGrey.darken3,
           primaryLight: colors.grey.lighten4,
         }

@@ -9,7 +9,7 @@
         <li v-for="(req, index) in recomendaciones" :key="index+'reqsPoo'">{{req}}</li>
       </ul>
       <p>Contenido:</p>
-      <v-list color="primary">
+      <v-list color="primaryMiddle">
         <v-list-item v-for="([icon, text,to], index) in items" :key="index" link :to="to">
           <v-list-item-content>
             <v-list-item-title>{{index+1}}.- {{ text }}</v-list-item-title>

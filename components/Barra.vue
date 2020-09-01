@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer color="primary" v-model="drawer" app clipped>
+    <v-navigation-drawer color="primaryMiddle" v-model="drawer" app clipped>
       <v-subheader class="mt-4 grey--text font-weight-black">{{ items.title }}:</v-subheader>
       <v-list>
         <v-divider></v-divider>
@@ -39,7 +39,7 @@
         />
         <v-card
           :light="!this.$vuetify.theme.dark?true:false"
-          color="primary"
+          color="primaryMiddle"
           v-click-outside="ocultarTodoElBuscador"
           v-if="textoBuscador"
           class="hijo"
@@ -48,7 +48,7 @@
           elevation="6"
           width="100%"
         >
-          <v-list color="primary">
+          <v-list color="primaryMiddle">
             <v-list-item
               v-for="(item,index) in searcFinded"
               :key="index"
