@@ -11,40 +11,61 @@
       <br>
       <p>Contenido:</p>
       <v-card color="primaryMiddle" class='elevation-1'>
-        <v-list-item v-for='(item, index) in items' :key='index' link :to='item.to'>
-          <v-list-item-content>
-            <v-list-item-title>{{index+1}}. {{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-            <v-icon>mdi-text-box-outline</v-icon>
-          </v-list-item-icon>
-        </v-list-item>
+      <v-list>
+        <template v-for="(item,index) in allItems['poo2'].items">
+          <v-list-group
+            v-if="item.items && item.items.length > 0"
+            :key="index+'-'+item.title"
+            v-model="item.active"
+            :prepend-icon="item.action"
+            no-action
+            :disabled="item.block"
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="subItem in item.items"
+              :key="subItem.title"
+              :to="subItem.to"
+            >
+              <v-list-item-icon class="mr-2">
+                <v-icon>{{subItem.icon}}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="subItem.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+          <v-list-item
+            v-else
+            :key="item.title"
+            :to="item.to"
+            :disabled="item.block"
+          >
+            <v-list-item-icon class="mr-3">
+                <v-icon>{{item.icon}}</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-list>
       </v-card>
     </v-container>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState(['allItems']),
+  },
   data: () => ({
-    items: [
-      {icon: '', title: 'Introduccion', to:'/poo2/01'},
-      {icon: '', title: 'Que es POO', to:'/poo2/02'},
-      {icon: '', title: 'Que es un OBJETO?', to:'/poo2/03'},
-      {icon: '', title: 'ABSTRACCIÓN y Clases', to:'/poo2/04'},
-      {icon: '', title: 'Diagramas de clase UML', to:'/poo2/'},
-      {icon: '', title: 'Implementación de nuestras clases en código', to:'/poo2/'},
-      {icon: '', title: 'Constructores y Destructores', to:'/poo2/'},
-      {icon: '', title: 'ENCAPSULACION, Getters y Setters', to:'/poo2/'},
-      {icon: '', title: 'Sobrecarga de Métodos', to:'/poo2/'},
-      {icon: '', title: 'Sobrecarga de Operadores', to:'/poo2/'},
-      {icon: '', title: 'Herencia simple', to:'/poo2/'},
-      {icon: '', title: 'Herencia multiple', to:'/poo2/'},
-      {icon: '', title: 'Agregación', to:'/poo2/'},
-      {icon: '', title: 'Composición', to:'/poo2/'},
-      {icon: '', title: 'Excepciones', to:'/poo2/'},
-      {icon: '', title: 'Persistencia de Objetos', to:'/poo2/'},
-    ],
     recomendaciones: [
       "Conocimientos basicos de Programación Estructurada",
       "Conocimientos basicos de Programación Modular",
