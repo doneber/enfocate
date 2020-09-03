@@ -101,6 +101,7 @@ export const state = () => ({
             {icon: 'mdi-text-box-outline', title: 'Que es POO', to:'/poo2/02', block:false},
             {icon: 'mdi-text-box-outline', title: 'Que es un OBJETO?', to:'/poo2/03', block:false},
             {icon: 'mdi-text-box-outline', title: 'ABSTRACCIÓN y Clases', to:'/poo2/04', block:false},
+            {icon: 'mdi-text-box-outlin', title: 'Clases', to:'/poo2/05', block:false},
             {icon: 'mdi-lock', title: 'Diagramas de clase UML', to:'/poo2/', block:true},
             {icon: 'mdi-lock', title: 'Implementación de nuestras clases en código', to:'/poo2/', block:true},
             {icon: 'mdi-lock', title: 'Constructores y Destructores', to:'/poo2/', block:true},
