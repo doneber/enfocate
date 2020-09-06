@@ -99,7 +99,11 @@ export const state = () => ({
         poo2: {
           title: "POO",
           items: [
-            {icon: 'mdi-text-box-outline', title: 'Introduccion', to:'/poo2/01', block:false},
+            {icon: 'mdi-text-box-outline', title: 'Introduccion', block:false,
+              items:[
+                {icon: 'mdi-text-box-outline', title: 'Introducción', to:'/poo2/01-01'},
+                {icon: 'mdi-play', title: 'Herramientas', to:'/poo2/01-02'},
+            ]},
             {icon: 'mdi-text-box-outline', title: 'Que es POO', to:'/poo2/02', block:false},
             {icon: 'mdi-text-box-outline', title: 'Que es un OBJETO?', to:'/poo2/03', block:false},
             {icon: 'mdi-text-box-outline', title: 'Abstracción', to:'/poo2/04', block:false},
