@@ -16,7 +16,6 @@
           <v-list-group
             v-if="item.items && item.items.length > 0"
             :key="index+'-'+item.title"
-            v-model="item.active"
             :prepend-icon="item.action"
             no-action
             :disabled="item.block"
