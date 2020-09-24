@@ -2,6 +2,7 @@ export const state = () => ({
     allItems: {
         poo: {
           title: "POO",
+          baseEndPoint: "/poo",
           items: [
             { icon: "mdi-play", 
               title: "POO", 
@@ -37,6 +38,7 @@ export const state = () => ({
         },
         android: {
           title: "Android",
+          baseEndPoint: "/android",
           items: [
             { icon: "mdi-play", title: "Instalación", to: "/android/and01" },
             { icon: "", title: "Sumadora App", to: "/android/and02" },
@@ -46,6 +48,7 @@ export const state = () => ({
         },
         estructuraDeDatos: {
           title: "Estructura de Datos",
+          baseEndPoint: "/eDatos",
           items: [
             { icon: "mdi-text-box-outline", title: "Introduccion", to: "/eDatos/01", block:false },
             { icon: "mdi-text-box-outline", title: "Pilas", to: "/eDatos/02", block:false },
@@ -62,7 +65,7 @@ export const state = () => ({
             },
             { icon: "mdi-code-tags", title: "Listas Dobles normal", to: "/eDatos/09", block:false },
             {
-              icon: "mdi-code-tag, block:falses",
+              icon: "mdi-code-tags", block:false,
               title: "Listas Dobles circular",
               to: "/eDatos/10",
               block:false
@@ -74,6 +77,7 @@ export const state = () => ({
         },
         programacionEstructurada: {
           title: "Programacion Estructurada",
+          baseEndPoint: "/pEstructurada",
           items: [
             {icon:'mdi-text-box-outline', title: 'Introducción', to:'/pEstructurada/01', block:false},
             {icon:'mdi-text-box-outline', title: '¿Que es un algoritmo? | Algoritmos y caracteristicas', to:'/pEstructurada/02', block:false},
@@ -98,6 +102,7 @@ export const state = () => ({
         },
         poo2: {
           title: "POO",
+          baseEndPoint: "/poo2",
           items: [
             {icon: 'mdi-text-box-outline', title: 'Introduccion', block:false,
               items:[

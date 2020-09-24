@@ -1,8 +1,11 @@
 <template>
   <div>
     <v-navigation-drawer color="primaryMiddle" v-model="drawer" app clipped>
-      <v-subheader class="mt-4 grey--text font-weight-black">{{ items.title }}:</v-subheader>
       <v-list>
+        <v-list-item :to="items.baseEndPoint" exact>
+          <v-subheader class="grey--text font-weight-black">{{ items.title }}:</v-subheader>
+
+        </v-list-item>
         <v-divider></v-divider>
         <template v-for="(item,index) in items.items">
           <v-list-group
