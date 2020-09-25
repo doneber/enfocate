@@ -154,3 +154,14 @@ export const state = () => ({
     },
   },
 })
+export const mutations = {
+  async hello(state) {
+    console.log("Hello from State");
+    const files = await require.context(`~/contents/`, true, /\.md$/);
+    files.keys().forEach( async key => {
+        const fileItem = await import(`~/contents${key.substr(1)}`)
+        const attrs = fileItem.attributes
+        console.log({title:attrs.title, description:attrs.description, color: attrs.color});
+    });
+  }
+}

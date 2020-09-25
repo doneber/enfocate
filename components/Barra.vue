@@ -110,7 +110,7 @@
 </template>
 <script>
 import path from "path";
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   data: () => ({
     textoBuscador: "",
@@ -124,6 +124,13 @@ export default {
     ...mapState(['allItems']),
 
     searcFinded() {
+      let auxItems = ['']
+      for (let i in this.allItems) {
+        // auxItems.concat(this.allItems[i]["items"])
+        console.log(this.allItems[i].items);
+        auxItems.concat(this.allItems[i].items)
+      }
+      console.log(auxItems);
       return this.allItems["poo"]["items"]
         .concat(this.allItems["android"]["items"])
         .concat(this.allItems["eDatos"]["items"])
@@ -140,6 +147,7 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(["hello"]),
     LevenshteinDistance: function (a, b) {
       if (a.length == 0) return b.length;
       if (b.length == 0) return a.length;
@@ -197,6 +205,7 @@ export default {
     this.$vuetify.theme.dark = this.modoDark;
   },
   created() {
+    this.hello() //Hello from state
     this.inHome = this.$router.currentRoute.path == "/" ? true : false;
     this.calculaDrawer(this.$router.currentRoute.path);
     if (this.$vuetify.breakpoint.xs) {

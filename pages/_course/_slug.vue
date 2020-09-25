@@ -32,12 +32,6 @@
   export default {
     async asyncData ({params, app}) {
       const fileContent = await import(`~/contents/${params.course}/${params.slug}.md`)
-      const files = await require.context(`~/contents/android/`, true, /\.md$/);
-  console.log('params: ',params);
-      // files.keys().forEach(key => {
-      //     console.log({ pathLong: files(key), pathShort: key });
-      // });
-      // console.log('filenames:',files.keys());
       const attr = fileContent.attributes
       return {
         name: params.slug,
