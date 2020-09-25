@@ -126,8 +126,8 @@ export default {
     searcFinded() {
       return this.allItems["poo"]["items"]
         .concat(this.allItems["android"]["items"])
-        .concat(this.allItems["estructuraDeDatos"]["items"])
-        .concat(this.allItems["programacionEstructurada"]["items"])
+        .concat(this.allItems["eDatos"]["items"])
+        .concat(this.allItems["pEstructurada"]["items"])
         .concat(this.allItems["poo2"]["items"])
         .filter(
           (item) =>
@@ -172,8 +172,8 @@ export default {
     },
     calculaDrawer(url) {
       if (url == "/") this.items = this.allItems["home"];
-      else if (url.includes("/eDatos", 0)) this.items = this.allItems["estructuraDeDatos"];
-      else if (url.includes("/pEstructurada", 0)) this.items = this.allItems["programacionEstructurada"];
+      else if (url.includes("/eDatos", 0)) this.items = this.allItems["eDatos"];
+      else if (url.includes("/pEstructurada", 0)) this.items = this.allItems["pEstructurada"];
       else if (url.includes("/poo2", 0)) this.items = this.allItems["poo2"];
       else if (url.includes("/poo", 0)) this.items = this.allItems["poo"];
       else if (url.includes("/android", 0))

@@ -10,7 +10,6 @@
               {{year}}
             </p>
             <p class="my-1">{{description}}</p>
-
           </v-card-text>
         </v-card>
       </v-container>
@@ -32,7 +31,13 @@
   import DynamicMarkdown from "~/components/DynamicMarkdown.vue"
   export default {
     async asyncData ({params, app}) {
-      const fileContent = await import(`~/contents/poo2/${params.slug}.md`)
+      const fileContent = await import(`~/contents/${params.course}/${params.slug}.md`)
+      const files = await require.context(`~/contents/android/`, true, /\.md$/);
+  console.log('params: ',params);
+      // files.keys().forEach(key => {
+      //     console.log({ pathLong: files(key), pathShort: key });
+      // });
+      // console.log('filenames:',files.keys());
       const attr = fileContent.attributes
       return {
         name: params.slug,
