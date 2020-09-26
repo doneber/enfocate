@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-list>
-      <template v-for="(item, index) in allItems[baseEndPoint].items">
+      <template v-for="(item, index) in courseList.items">
         <v-list-group
           v-if="item.items && item.items.length > 0"
           :key="index + '-' + item.title"
@@ -47,6 +47,6 @@
 </template>
 <script>
 export default {
-   props: ["allItems", "baseEndPoint"]
+   props: ["courseList"]
 }
 </script>
