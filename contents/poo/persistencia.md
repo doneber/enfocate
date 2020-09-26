@@ -1,10 +1,8 @@
 ---
-name: 'Persistencia'
 title: Persistencia
 year: 21 julio 2020
-color: 'green'
-trans: 'Persistencia'
-id: 'poo07'
+icon: 'mdi-play'
+block: false
 description: |
   Si bien la persistencia no es un pilar de la POO, este concepto nos ayudará a entender como guardar nuestros datos.
 --- 

@@ -1,10 +1,8 @@
 ---
-name: 'Miniproyecto en Android'
 title: Creacion de proyecto con Android
 year: 18 Julio 2020
-color: 'green'
-trans: 'Create a proyect with android'
-id: 'miniproyect-android'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Vamos creando un proyecto en android básico para principiantes y no principiantes
 ---

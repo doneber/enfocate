@@ -1,10 +1,8 @@
 ---
-name: 'Primeros pasos en ANDROID'
 title: Primeros pasos en ANDROID
 year: 2 Julio 2020
-color: 'green'
-trans: 'First step in Android'
-id: 'android01'
+icon: 'mdi-play'
+block: false
 description: |
   Es este capitulo haremos la instalación y creación de un proyecto android básico
 ---

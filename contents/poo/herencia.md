@@ -1,10 +1,8 @@
 ---
-name: 'Herencia'
 title: Herencia
 year: 23 junio 2020
-color: 'green'
-trans: 'Inherence'
-id: 'poo06'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Vemos un poco de la Herencia entre las clases
 ---

@@ -1,10 +1,8 @@
 ---
-name: 'Aplicación de Sumas'
 title: Aplicación de Sumas
 year: 7 Julio 2020
-color: 'green'
-trans: 'Sum App'
-id: 'android02'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Crearemos una simple aplicación donde manejaremos distitos componenentes utilizados en Android
 ---

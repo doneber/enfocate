@@ -1,10 +1,8 @@
 ---
-name: 'POO en 1 minuto'
 title: POO en 1 minuto
 year: 28 mayo 2020
-color: 'green'
-trans: 'OOP in 1 minute'
-id: 'poo01'
+icon: 'mdi-play'
+block: false
 description: |
   La programación orientada a objetos resumida en 1 minuto.
 ---

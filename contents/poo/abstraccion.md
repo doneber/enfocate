@@ -1,10 +1,8 @@
 ---
-name: 'Abstraccion en POO'
 title: Abstraccion en POO
 year: 2 junio 2020
-color: 'green'
-trans: 'Abstraction'
-id: 'poo01'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Para entender la POO nos sumergiremos en el mundo de lo abstracto
 ---

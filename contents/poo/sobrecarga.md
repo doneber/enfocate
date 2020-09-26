@@ -1,10 +1,8 @@
 ---
-name: 'Sobrecarga'
 title: Sobrecarga
 year: 28 junio 2020
-color: 'green'
-trans: 'Sobrecarga'
-id: 'poo04'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Veremos la sobrecarga tambien conocida como Polimorfismo en la POO
 ---

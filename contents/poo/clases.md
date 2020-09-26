@@ -1,10 +1,8 @@
 ---
-name: 'Clases en POO'
 title: Clases en POO
 year: 7 junio 2020
-color: 'green'
-trans: 'POO Class'
-id: 'poo03'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Para comprender la POO debemos de entender que rayos son estas famosas 'clases'
 ---

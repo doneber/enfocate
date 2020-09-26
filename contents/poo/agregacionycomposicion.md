@@ -1,10 +1,8 @@
 ---
-name: 'Agregación y Composición'
 title: Agregación y Composición (Ejercicio)
 year: 15 junio 2020
-color: 'green'
-trans: 'AG/CP'
-id: 'poo04'
+icon: 'mdi-text-box-outline'
+block: false
 description: |
   Veremos 2 ejercicios del topico de agregación y composicion para practicar un poco
 ---
