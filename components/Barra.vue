@@ -110,7 +110,7 @@
 </template>
 <script>
 import path from "path";
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   data: () => ({
     textoBuscador: "",
@@ -147,7 +147,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["hello"]),
+    ...mapActions(["getCourses"]),
     LevenshteinDistance: function (a, b) {
       if (a.length == 0) return b.length;
       if (b.length == 0) return a.length;
@@ -204,8 +204,8 @@ export default {
   updated() {
     this.$vuetify.theme.dark = this.modoDark;
   },
-  created() {
-    this.hello() //Hello from state
+  async created() {
+    await this.getCourses() //getCourses from state
     this.inHome = this.$router.currentRoute.path == "/" ? true : false;
     this.calculaDrawer(this.$router.currentRoute.path);
     if (this.$vuetify.breakpoint.xs) {
