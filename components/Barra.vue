@@ -11,7 +11,41 @@
         :class="[!showSearcher?'':'hidden-xs-only']"
       >Enfocate</v-toolbar-title>
       <v-spacer class="hidden-xs-only" />
-      <searcher />
+        <div class="padre">
+        <v-text-field
+          clearable
+          :class="[showSearcher?'':'hidden-xs-only']"
+          placeholder="Buscar"
+          @blur="ocultarBuscador"
+          hide-details
+          :autofocus="showSearcher"
+          v-model="textoBuscador"
+        />
+        <v-card
+          :light="!this.$vuetify.theme.dark?true:false"
+          color="primaryMiddle"
+          v-click-outside="ocultarTodoElBuscador"
+          v-if="textoBuscador"
+          class="hijo"
+          ma-0
+          pa-0
+          elevation="6"
+          width="100%"
+        >
+          <v-list color="primaryMiddle">
+            <v-list-item
+              v-for="(item,index) in searcFinded"
+              :key="index"
+              :to="item.to"
+              @click="ocultarTodoElBuscador()"
+            >
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title">{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </div>
       <v-spacer class="hidden-sm-and-up" />
       <v-icon @click="mostrarBuscador()">mdi-magnify</v-icon>
       <v-spacer class="hidden-xs-only" />
@@ -25,7 +59,6 @@
   </div>
 </template>
 <script>
-import searcher from '@/components/Searcher'
 import drawer from '@/components/Drawer'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
@@ -38,7 +71,7 @@ export default {
     items: { baseEndPoint:''},
   }),
   components:{
-    searcher, drawer
+    drawer
   },
   computed: {
     ...mapState(['allItems']),
