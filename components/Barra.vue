@@ -34,7 +34,7 @@
         >
           <v-list color="primaryMiddle">
             <v-list-item
-              v-for="(item,index) in searcFinded"
+              v-for="(item,index) in searchFinded"
               :key="index"
               :to="item.to"
               @click="ocultarTodoElBuscador()"
@@ -60,7 +60,7 @@
 </template>
 <script>
 import drawer from '@/components/Drawer'
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   data: () => ({
     textoBuscador: "",
@@ -76,32 +76,27 @@ export default {
   computed: {
     ...mapState(['allItems']),
 
-    searcFinded() {
-      let auxItems = ['']
-      for (let i in this.allItems) {
-        // auxItems.concat(this.allItems[i]["items"])
-        console.log(this.allItems[i].items);
-        auxItems.concat(this.allItems[i].items)
-      }
-      console.log(auxItems);
-      return this.allItems["poo"]["items"]
-        .concat(this.allItems["android"]["items"])
-        .concat(this.allItems["edatos"]["items"])
-        .concat(this.allItems["pestructurada"]["items"])
-        .concat(this.allItems["poo2"]["items"])
-        .filter(
+    searchFinded() {
+      /* SearchFinded searches the input-text from the store*/
+      let auxItems = []
+      for (let i in this.allItems)
+        auxItems = auxItems.concat(this.allItems[i].items)
+
+      auxItems = auxItems.filter(
           (item) =>
             this.LevenshteinDistance(
               item.title.toUpperCase(),
               this.textoBuscador.toUpperCase()
             ) < 3 ||
             item.title.toUpperCase().includes(this.textoBuscador.toUpperCase())
-        );
+        )
+      return auxItems
     },
   },
   methods: {
     ...mapActions(["getCourses"]),
     LevenshteinDistance: function (a, b) {
+      /* Calculates the distance beetween two Strings */
       if (a.length == 0) return b.length;
       if (b.length == 0) return a.length;
       let matrix = [];
@@ -132,13 +127,9 @@ export default {
       this.$router.push("/");
     },
     calculaDrawer(url) {
-      if (url == "/") this.items = this.allItems["home"];
-      else if (url.includes("/edatos", 0)) this.items = this.allItems["edatos"];
-      else if (url.includes("/pestructurada", 0)) this.items = this.allItems["pestructurada"];
-      else if (url.includes("/poo2", 0)) this.items = this.allItems["poo2"];
-      else if (url.includes("/poo", 0)) this.items = this.allItems["poo"];
-      else if (url.includes("/android", 0))
-        this.items = this.allItems["android"];
+      /* depending of the actual route, we dispaly an especific item's list */
+      if (url === "/") this.items = this.allItems['home']
+      else this.items = this.allItems[url.split('/')[1]]
     },
     mostrarBuscador() {
       this.showSearcher = true;
@@ -165,7 +156,6 @@ export default {
       this.drawer = false;
     }
   },
-  mounted() {},
   watch: {
     $route(to, from) {
       let url = this.$router.currentRoute.path;
