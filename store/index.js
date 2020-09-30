@@ -71,7 +71,7 @@ export const actions = {
         const attrs = fileItem.attributes
         allCourses[course]['items'].push({title:attrs.title, to:ref, icon:attrs.icon, block: attrs.block}) // 
       })
-      console.log('AllCourses',allCourses)
+      // console.log('AllCourses',allCourses)
       commit('fillCourses', allCourses)
     }
 

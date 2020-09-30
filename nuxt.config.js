@@ -6,10 +6,14 @@ import MarkdownIt from 'markdown-it'
 import mip from 'markdown-it-prism'
 
 function getMDPaths(type) {
-  const files = fs.readdirSync(path.resolve(__dirname, 'contents', type));
-  return files.filter(fileName => path.extname(fileName) === '.md')
-                .map(fileName => `${type}/${path.parse(fileName).name}`)
-
+  const directories = fs.readdirSync(path.resolve(__dirname, 'contents'));
+  const res = []
+  directories.forEach(directoryName => {
+    const files = fs.readdirSync(path.resolve(__dirname, 'contents', directoryName));
+    res.push(directoryName)
+    files.forEach(fileName => res.push(`${directoryName}/${path.parse(fileName).name}`))
+  })
+  return res
 }
 const md = new MarkdownIt({
   html: true,
@@ -137,8 +141,7 @@ export default {
     },
   },
   generate: {
-    routes: []
-    .concat(getMDPaths('poo'))
-    .concat(getMDPaths('android'))
+    routes: ['404']
+      .concat(getMDPaths())
   }
 }
