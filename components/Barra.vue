@@ -128,7 +128,7 @@ export default {
     },
     calculaDrawer(url) {
       /* depending of the actual route, we dispaly an especific item's list */
-      if (url === "/") this.items = this.allItems['home']
+      if (url === "/"  || url === "/nosotros" ) this.items = this.allItems['home']
       else this.items = this.allItems[url.split('/')[1]]
     },
     mostrarBuscador() {
