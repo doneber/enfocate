@@ -1,25 +1,19 @@
-<template>
-  <v-app>
-    <barra />
-    <drawer />
-    <v-main>
-      <nuxt style="min-height:100%" />
-      <v-footer padless>
-        <v-col class="text-center" cols="12">
-          {{ new Date().getFullYear() }} —
-          <strong>@Enfocate</strong>
-        </v-col>
-      </v-footer>
-    </v-main>
-  </v-app>
+<template lang="pug">
+  v-app
+    barra
+    drawer
+    v-main
+      nuxt(style='min-height:100%')
+      foot
 </template>
 
 <script>
 import barra from "@/components/Barra"
 import drawer from "@/components/Drawer"
+import Foot from "@/components/Foot"
 export default {
   components: {
-    barra, drawer
+    barra, drawer, Foot
   },
 };
 </script>

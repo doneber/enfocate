@@ -1,21 +1,12 @@
-<template>
-  <div>
-    <v-container
-      :class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']"
-    >
-      <p class="display-1 text-center font-weight-black">{{ title }}</p>
-      <p>{{ description }}</p>
-      <p>Recomendaciones:</p>
-      <ul>
-        <li
-          v-for="(req, index) in recommendations"
-          :key="index + 'reqsAndroid'"
-        >
-          {{ req }}
-        </li>
-      </ul>
-    </v-container>
-  </div>
+<template lang="pug">
+  div
+    v-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
+      p.display-1.text-center.font-weight-black {{ title }}
+      p {{ description }}
+      p Recomendaciones:
+      ul
+        li(v-for='(req, index) in recommendations' :key="index + 'reqsAndroid'")
+          | {{ req }}
 </template>
 <script>
 export default {

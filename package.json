@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.2",
-    "frontmatter-markdown-loader": "^3.6.0"
+    "frontmatter-markdown-loader": "^3.6.0",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0"
   }
 }
