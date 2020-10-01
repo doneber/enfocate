@@ -1,8 +1,8 @@
 <template>
   <div>
-    <drawer :drawer="drawer" :items="items" />
+    <drawer :items="items" />
     <v-app-bar app clipped-left dense elevation="1" height="56" dark color="primaryDark">
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
+      <v-app-bar-nav-icon @click="setDrawer" />
       <v-img max-width="35px" class="mr-2" src="/icon.png" @click="goHome()" />
       <v-toolbar-title
         class="align-center"
@@ -60,7 +60,7 @@
 </template>
 <script>
 import drawer from '@/components/Drawer'
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   data: () => ({
     textoBuscador: "",
@@ -94,7 +94,9 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["getCourses"]),
+    ...mapActions(["getCourses", "toggleDrawer"]),
+    ...mapMutations(["setDrawer"]),
+
     LevenshteinDistance: function (a, b) {
       /* Calculates the distance beetween two Strings */
       if (a.length == 0) return b.length;

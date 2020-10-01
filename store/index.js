@@ -1,9 +1,13 @@
 export const state = () => ({
   allItems: {},
+  drawer: false
 })
 export const mutations = {
   fillCourses(state, courses) {
     state.allItems = courses;
+  },
+  setDrawer(state, value){
+    state.drawer = !state.drawer
   }
 }
 export const actions = {
@@ -36,6 +40,5 @@ export const actions = {
       }
     })
     commit('fillCourses', allCourses)
-  }
-
+  },
 }

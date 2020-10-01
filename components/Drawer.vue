@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer color="primaryMiddle" v-model="drawer" app clipped>
+    <v-navigation-drawer color="primaryMiddle" v-model="myDrawer" app clipped>
       <v-list>
         <v-list-item :to="items.baseEndPoint" exact>
           <v-subheader class="grey--text font-weight-black">{{ items.title }}:</v-subheader>
@@ -51,11 +51,20 @@
     </v-navigation-drawer>
 </template>
 <script>
-  import { mapState } from 'vuex'
-  export default {
-    props:['drawer','items'],
-    computed:{
-      ...mapState(['toggleDrawer'])
-    }
-  }
+import { mapState, mapActions, mapMutations } from "vuex";
+export default {
+  props: ["items"],
+  data: () => ({}),
+  computed: {
+    ...mapState(["drawer"]),
+    myDrawer: {
+      get() {
+        return this.drawer;
+      },
+      set(value) {
+        /* How runs this set in this case? */
+      },
+    },
+  },
+};
 </script>
