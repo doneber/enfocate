@@ -1,6 +1,5 @@
 <template>
   <div>
-    <drawer :items="items" />
     <v-app-bar app clipped-left dense elevation="1" height="56" dark color="primaryDark">
       <v-app-bar-nav-icon @click="setDrawer" />
       <v-img max-width="35px" class="mr-2" src="/icon.png" @click="goHome()" />
@@ -65,7 +64,6 @@ export default {
   data: () => ({
     textoBuscador: "",
     showSearcher: false,
-    drawer: false,
     inHome: null,
     modoDark: true,
     items: { baseEndPoint:''},
@@ -94,7 +92,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["getCourses", "toggleDrawer"]),
     ...mapMutations(["setDrawer"]),
 
     LevenshteinDistance: function (a, b) {
@@ -128,11 +125,6 @@ export default {
     goHome() {
       this.$router.push("/");
     },
-    calculaDrawer(url) {
-      /* depending of the actual route, we dispaly an especific item's list */
-      if (url === "/"  || url === "/nosotros" ) this.items = this.allItems['home']
-      else this.items = this.allItems[url.split('/')[1]]
-    },
     mostrarBuscador() {
       this.showSearcher = true;
     },
@@ -145,25 +137,15 @@ export default {
     },
     cambiarModo() {
       this.modoDark = !this.modoDark;
+      this.$vuetify.theme.dark = this.modoDark;
     },
   },
-  updated() {
-    this.$vuetify.theme.dark = this.modoDark;
-  },
-  async created() {
-    await this.getCourses() //getCourses from state
-    this.inHome = this.$router.currentRoute.path == "/" ? true : false;
-    this.calculaDrawer(this.$router.currentRoute.path);
-    if (this.$vuetify.breakpoint.xs) {
-      this.drawer = false;
-    }
+  created() {
+    this.inHome = this.$router.currentRoute.path === '/'
   },
   watch: {
     $route(to, from) {
-      let url = this.$router.currentRoute.path;
-      if (url == "/") this.inHome = true;
-      else this.inHome = false;
-      this.calculaDrawer(url);
+      this.inHome = to.path === '/'
     },
   },
 };

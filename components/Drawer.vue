@@ -51,13 +51,25 @@
     </v-navigation-drawer>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 export default {
-  props: ['items'],
-  data: () => ({}),
+  data: () => ({
+    items: { baseEndPoint:'/'},
+  }),
+  async created(){
+    await this.getCourses() //getCourses from state
+    this.calculaDrawer(this.$router.currentRoute.path)
+  },
+  methods:{
+    ...mapActions(["getCourses"]),
+    calculaDrawer(url) {
+      /* depending of the actual route, we dispaly an especific item's list */
+      if (url === "/"  || url === "/nosotros" ) this.items = this.allItems['home']
+      else this.items = this.allItems[url.split('/')[1]]
+    },
+  },
   computed: {
-    ...mapState(['drawer']),
-    ...mapMutations(['setDrawer']), //notice that this is in computed methods
+    ...mapState(['allItems','drawer']),
     myDrawer: {
       get() {
         return this.drawer;
@@ -65,6 +77,11 @@ export default {
       set(value) {
         this.$store.commit('setDrawer', value)
       },
+    },
+  },
+  watch: {
+    $route(to, from) {
+      this.calculaDrawer(to.path)
     },
   },
 };

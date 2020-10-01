@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <barra />
+    <drawer />
     <v-main>
       <nuxt style="min-height:100%" />
       <v-footer padless>
@@ -14,10 +15,11 @@
 </template>
 
 <script>
-import barra from "@/components/Barra";
+import barra from "@/components/Barra"
+import drawer from "@/components/Drawer"
 export default {
   components: {
-    barra,
+    barra, drawer
   },
 };
 </script>
