@@ -7,11 +7,11 @@
       v-spacer.hidden-xs-only
       .padre
         v-text-field(clearable='' :class="[showSearcher?'':'hidden-xs-only']" placeholder='Buscar' @blur='ocultarBuscador' hide-details='' :autofocus='showSearcher' v-model='textoBuscador')
-          v-card.hijo(:light='!this.$vuetify.theme.dark?true:false' color='primaryMiddle' v-click-outside='ocultarTodoElBuscador' v-if='textoBuscador' ma-0='' pa-0='' elevation='6' width='100%')
-            v-list(color='primaryMiddle')
-              v-list-item(v-for='(item,index) in searchFinded' :key='index' :to='item.to' @click='ocultarTodoElBuscador()')
-                v-list-item-content
-                  v-list-item-title(v-text='item.title') {{ item.title }}
+        v-card.hijo(:light='!this.$vuetify.theme.dark?true:false' color='primaryMiddle' v-click-outside='ocultarTodoElBuscador' v-if='textoBuscador' ma-0='' pa-0='' elevation='6' width='100%')
+          v-list(color='primaryMiddle')
+            v-list-item(v-for='(item,index) in searchFinded' :key='index' :to='item.to' @click='ocultarTodoElBuscador()')
+              v-list-item-content
+                v-list-item-title(v-text='item.title') {{ item.title }}
       v-spacer.hidden-sm-and-up
       v-icon(@click='mostrarBuscador()') mdi-magnify
       v-spacer.hidden-xs-only

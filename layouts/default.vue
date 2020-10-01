@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app
-    barra
+    Bar
     drawer
     v-main
       nuxt(style='min-height:100%')
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import barra from "@/components/Barra"
+import Bar from "@/components/Bar"
 import drawer from "@/components/Drawer"
 import Foot from "@/components/Foot"
 export default {
   components: {
-    barra, drawer, Foot
+    Bar, drawer, Foot
   },
 };
 </script>
