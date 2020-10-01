@@ -51,18 +51,19 @@
     </v-navigation-drawer>
 </template>
 <script>
-import { mapState, mapActions, mapMutations } from "vuex";
+import { mapState, mapMutations } from 'vuex';
 export default {
-  props: ["items"],
+  props: ['items'],
   data: () => ({}),
   computed: {
-    ...mapState(["drawer"]),
+    ...mapState(['drawer']),
+    ...mapMutations(['setDrawer']), //notice that this is in computed methods
     myDrawer: {
       get() {
         return this.drawer;
       },
       set(value) {
-        /* How runs this set in this case? */
+        this.$store.commit('setDrawer', value)
       },
     },
   },

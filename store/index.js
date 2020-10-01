@@ -7,7 +7,10 @@ export const mutations = {
     state.allItems = courses;
   },
   setDrawer(state, value){
-    state.drawer = !state.drawer
+    if(typeof value === "boolean")
+      state.drawer = value
+    else
+      state.drawer = !state.drawer
   }
 }
 export const actions = {
