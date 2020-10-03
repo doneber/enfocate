@@ -3,7 +3,7 @@
     Bar
     drawer
     v-main
-      nuxt(style='min-height:100%')
+      nuxt(style='min-height:100vh')
       foot
 </template>
 
