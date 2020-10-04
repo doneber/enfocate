@@ -1,10 +1,14 @@
 export const state = () => ({
   allItems: {},
+  cardCourses: [],
   drawer: false
 })
 export const mutations = {
   fillCourses(state, courses) {
     state.allItems = courses;
+  },
+  fillCardCourses(state, newCardCourses){
+    state.cardCourses = newCardCourses
   },
   setDrawer(state, value){
     if(typeof value === "boolean")
@@ -44,4 +48,22 @@ export const actions = {
     })
     commit('fillCourses', allCourses)
   },
+  getCardCourses: async function ({ commit }) {
+    const files = await require.context(`~/contents/`, true, /\index.md$/)
+    const keys = files.keys()
+    const auxCards = await Promise.all(keys.map(async key => await import(`~/contents${key.substr(1)}`)
+                  .then(file => ({...file.attributes, baseEndPoint:key.split('/')[1] }))))
+    function compare( a, b ) {
+  if ( a.last_nom < b.last_nom ){
+    return -1;
+  }
+  if ( a.last_nom > b.last_nom ){
+    return 1;
+  }
+  return 0;
+}
+
+    auxCards.sort( (a,b)=> a.id > b.id? 1:-1 )
+    commit('fillCardCourses',auxCards)
+  }
 }

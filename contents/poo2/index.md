@@ -1,4 +1,6 @@
 ---
+id: 121
+color: orange
 title: Programación Orientada a Objetos
 description: La Programación Orientada a Objetos es la forma de programar mas utilizada en todos los tiempo. Conoce los conocimientos y aprende bases fuertes para comenzar con bases solidas en el mundo del desarrollo y la programación
 shortDescription: Programación Orientada a Objetos

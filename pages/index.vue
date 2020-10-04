@@ -4,23 +4,18 @@
       v-row(justify='center')
         v-col(md='10')
           p.display-2.text-center Bienvenido
-          p II/2020 | Programación
-          v-row
-            v-col(v-for='(course, index) in paradigmCourses' md='4' :key="index+'course'")
-              v-card(style='min-height:100%' :to='course.link' :color='darkMode?course.colorDark:course.colorLight' :dark='course.dark' :disabled='course.disabled')
-                v-card-title.headline {{ course.title }}
-                v-card-text {{course.description}}
-                v-card-actions
-                  v-btn(text='') Curiosea ahora
-          br
-          p I/2020
-          v-row
-            v-col(v-for='(course, index) in courses' md='4' :key="index+'course'")
-              v-card(style='min-height:100%' :to='course.link' :color='darkMode?course.colorDark:course.colorLight' :dark='course.dark' :disabled='course.disabled')
-                v-card-title.headline {{ course.title }}
-                v-card-text {{course.description}}
-                v-card-actions
-                  v-btn(text='') Curiosea ahora
+          p.text-center Clases de programación:
+      v-row
+        v-col(v-for='(course, index) in cardCourses' cols='12' sm='6' lg='4' :key="index+'-course'")
+          v-card.mx-auto(:to='course.baseEndPoint' height='100%')
+            v-card-text.text-h5.font-weight-medium
+              | {{ course.title }}
+            v-card-text
+              | {{ course.shortDescription }}
+            v-card-actions.px-4
+              span.font-weight-medium.text--lighten-2(:class="[$vuetify.theme.dark?'orange--text':'blue-grey--text text--lighten-1']") COMIENZA AHORA
+              v-spacer
+              v-chip.font-weight-bold(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark') {{course.id}}
     v-dialog(v-model='dialog' max-width='500')
       v-card(light='')
         v-card-title
@@ -40,72 +35,19 @@
       v-icon mdi-help
 </template>
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   data: () => ({
     dialog: false,
-    paradigmCourses: [
-      {
-        title: "Estructurada",
-        description: "Programación Estructurada",
-        colorDark: "blue-grey darken-1",
-        colorLight: "blue-grey",
-        link: "/pestructurada",
-        dark: true,
-        disabled: false,
-      },
-      {
-        title: "Orientada a Objetos",
-        description: "Programacion Orientada a Objetos",
-        colorDark: "blue-grey darken-2",
-        colorLight: "blue-grey darken-1",
-        link: "/poo2",
-        dark: true,
-        disabled: false,
-      },
-      {
-        title: "Estructura de Datos",
-        description: "Estructura de Datos",
-        colorDark: "blue-grey darken-3",
-        colorLight: "blue-grey darken-2",
-        link: "/edatos",
-        dark: true,
-        disabled: false,
-      },
-    ],
-    courses: [
-      {
-        title: "POO (I/2020)",
-        description: "Programación Orientada a Objetos",
-        colorDark: "grey darken-3",
-        colorLight: "",
-        link: "/poo",
-        dark: false,
-        disabled: false,
-      },
-      {
-        title: "Android",
-        description: "Android básico para principiantes",
-        colorDark: "green darken-4",
-        colorLight: "green darken-3",
-        link: "/android",
-        dark: true,
-        disabled: false,
-      },
-      {
-        title: "Prog. Funcional",
-        description: "Programación Funcional, conceptos",
-        colorDark: "grey darken-2",
-        colorLight: "grey",
-        link: "/",
-        dark: true,
-        disabled: true,
-      },
-    ],
   }),
+  async created(){
+    await this.getCardCourses()
+  },
+  methods:{
+    ...mapActions(['getCardCourses'])
+  },
   computed: {
-    darkMode() {
-      return this.$vuetify.theme.dark;
-    },
+    ...mapState(['cardCourses']),
   },
 };
 </script>

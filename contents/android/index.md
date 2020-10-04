@@ -1,4 +1,6 @@
 ---
+id: 325
+color: green
 title: Programación en Android
 description: En este apartado encontrarás una serie de documentos y/o videos relacionados con la programación de aplicaciones android, usaremos tanto el editor Eclipse Android, como Android Studio
 shortDescription: Programación en Android

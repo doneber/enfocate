@@ -1,4 +1,6 @@
 ---
+id: 131
+color: blue
 title: Estructura de Datos
 description: Las estructuras de datos nos permiten crear programas complejos implementando algoritmos optimos para el buen funcionamiento de nuestros programas o aplicaciones.
 shortDescription: Estructura de datos, el futuro es hoy
