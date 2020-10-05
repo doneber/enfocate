@@ -61,7 +61,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/prism-material-light.css'
+    '@/assets/css/prism-material-light.css',
+    '@/assets/css/md-styles.css',
   ],
   /*
   ** Plugins to load before mounting the App
