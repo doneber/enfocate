@@ -1,14 +1,16 @@
 <template lang="pug">
   div
-    v-sheet
-      v-container.pb-5(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']")
-        v-card.mt-2(color='primaryMiddle')
-          v-card-text.pt-1
-            p.display-2.font-weight-black.mt-2 {{ title }}
-            p.my-1
-              v-icon mdi-clock
-              |               {{year}}
-            p.my-1 {{description}}
+    v-container.pb-5(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']")
+      v-card.mt-2(color='primaryMiddle')
+        v-card-text.pt-1
+          p.display-2.font-weight-black.mt-2 {{ title }}
+          p {{description}}
+          a( :href="author?author.name:''" )
+            v-icon.mr-2 mdi-account
+            | {{ author? author.name : 'Autor anónimo' }}
+          p.my-2
+            v-icon.mr-2 mdi-calendar-range
+            | {{year}}
     v-container(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-2']")
       v-card.mt-0(color='primaryLight')
         v-card-text.pa-5
@@ -23,19 +25,12 @@
       return {
         name: params.slug,
         title: attr.title,
-        trans: attr.trans,
+        author: attr.author,
         year: attr.year,
-        id: attr.id,
-        cardAlt: attr.cardAlt,
-        noMainImage: attr.noMainImage,
         description: attr.description,
         extraComponent: attr.extraComponent,
         renderFunc: `(${fileContent.vue.render})`,
         staticRenderFuncs: `[${fileContent.vue.staticRenderFns}]`,
-        image: {
-          main: attr.image && attr.image.main,
-          og: attr.image && attr.image.og
-        }
       }
     },
     components: { DynamicMarkdown},
