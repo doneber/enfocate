@@ -7,13 +7,13 @@
           p.text-center Clases de programación:
       v-row
         v-col(v-for='(course, index) in cardCourses' cols='12' sm='6' lg='4' :key="index+'-course'")
-          v-card.mx-auto(:to='course.baseEndPoint' height='100%')
+          v-card.mx-auto(:to='course.baseEndPoint' height='100%' :color="$vuetify.theme.dark?'blue-grey darken-4':''" )
             v-card-text.text-h5.font-weight-medium
               | {{ course.title }}
             v-card-text
               | {{ course.shortDescription }}
             v-card-actions.px-4
-              span.font-weight-medium.text--lighten-2(:class="[$vuetify.theme.dark?'orange--text':'blue-grey--text text--lighten-1']") COMIENZA AHORA
+              span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") COMIENZA AHORA
               v-spacer
               v-chip.font-weight-bold(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark') {{course.id}}
     v-dialog(v-model='dialog' max-width='500')
@@ -31,7 +31,7 @@
             li
               | Si estas en desktop entonces en la parte superior de tu navegador te aparecerá el signo (+), el cual te permitirá instalarlo en tu compu
           |           TIP: Recuerda usar el boton menu arriba a la izquierda todo el tiempo. El tema Light, etc
-    v-btn(fixed='' dark='' fab='' bottom='' right='' color='deep-orange lighten-1' style='bottom:1em; right:1em' @click='dialog=true')
+    v-btn(fixed dark fab bottom right style='bottom:1em; right:1em' :dark='$vuetify.theme.dark' :light='!$vuetify.theme.dark' @click='dialog=true')
       v-icon mdi-help
 </template>
 <script>
