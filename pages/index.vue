@@ -13,9 +13,9 @@
             v-card-text
               | {{ course.shortDescription }}
             v-card-actions.px-4
-              span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") COMIENZA AHORA
+              span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") {{course.disable?'No disponible':'COMIENZA AHORA'}}
               v-spacer
-              v-chip.font-weight-bold(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark') {{course.id}}
+              v-chip(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark') INF-{{course.id}}
     v-dialog(v-model='dialog' max-width='500')
       v-card(light='')
         v-card-title

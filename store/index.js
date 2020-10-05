@@ -53,16 +53,49 @@ export const actions = {
     const keys = files.keys()
     const auxCards = await Promise.all(keys.map(async key => await import(`~/contents${key.substr(1)}`)
                   .then(file => ({...file.attributes, baseEndPoint:key.split('/')[1] }))))
-    function compare( a, b ) {
-  if ( a.last_nom < b.last_nom ){
-    return -1;
-  }
-  if ( a.last_nom > b.last_nom ){
-    return 1;
-  }
-  return 0;
-}
-
+    
+    auxCards.push(
+                  {
+                    baseEndPoint:'/', 
+                    id:111, 
+                    title:'Programación Modular',
+                    shortDescription:'Aprende como modularizar tus probramas básicos para subir tu nivel de programador',
+                    color:'lime darken-2',
+                    disable: true,
+                  },
+                  {
+                    baseEndPoint:'/', 
+                    id:143, 
+                    title:'Complejidad Algoritmica',
+                    shortDescription:'Conoce la eficiencia y compleidad de tus algoritmos',
+                    color:'orange',
+                    disable: true,
+                  },
+                  {
+                    baseEndPoint:'/', 
+                    id:143, 
+                    title:'Programación Dinamica',
+                    shortDescription:'El pardigma que hace tu vida sea complicadamente MAS FÁCIL!',
+                    color:'cyan darken-1',
+                    disable: true,
+                  },
+                  {
+                    baseEndPoint:'/', 
+                    id:161, 
+                    title:'Diseño de Base de Datos',
+                    shortDescription:'Comienza a diseñar tus primeras bases de datos relacionales',
+                    color:'teal',
+                    disable: true,
+                  },
+                  {
+                    baseEndPoint:'/', 
+                    id:272, 
+                    title:'Taller de Base de Datos',
+                    shortDescription:'Pon a prueba tus conocimientos de base de datos y avanza al siguiente nivel',
+                    color:'lime',
+                    disable: true,
+                  },
+                  )
     auxCards.sort( (a,b)=> a.id > b.id? 1:-1 )
     commit('fillCardCourses',auxCards)
   }
