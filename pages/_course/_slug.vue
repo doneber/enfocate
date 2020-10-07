@@ -5,9 +5,9 @@
         v-card-text.pt-1
           p.display-2.font-weight-black.mt-2 {{ title }}
           p {{description}}
-          a( :href="author?author.name:''" )
+          a( :href="authorUrl?authorUrl:''" )
             v-icon.mr-2 mdi-account
-            | {{ author? author.name : 'Autor anónimo' }}
+            | {{ authorName? authorName : 'Autor anónimo' }}
           p.my-2
             v-icon.mr-2 mdi-calendar-range
             | {{year}}
@@ -25,7 +25,8 @@
       return {
         name: params.slug,
         title: attr.title,
-        author: attr.author,
+        authorName: attr.authorName,
+        authorUrl: attr.authorUrl,
         year: attr.year,
         description: attr.description,
         extraComponent: attr.extraComponent,
