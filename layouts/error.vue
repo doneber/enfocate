@@ -1,13 +1,17 @@
 <template lang="pug">
   v-app
-    h1(v-if='error.statusCode === 404')
-      | {{ pageNotFound }}
-    h1(v-else='')
-      | {{ otherError }}
-    NuxtLink(to='/')
-      | Vuelve a casa
+    v-container
+      v-row(justify='center' align='center')
+        v-col(md='10')
+          center
+            h1(v-if='error.statusCode === 404')
+              | {{ pageNotFound }}
+            h1(v-else='')
+              | {{ otherError }}
+            NuxtLink(to='/')
+                      v-icon.mr-2 mdi-home
+                      | Volver a casa
 </template>
-
 <script>
 export default {
   layout: 'empty',

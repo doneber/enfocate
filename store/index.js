@@ -1,11 +1,11 @@
 export const state = () => ({
-  allItems: {},
+  courses: {},
   cardCourses: [],
   drawer: false
 })
 export const mutations = {
   fillCourses(state, courses) {
-    state.allItems = courses;
+    state.courses = courses;
   },
   fillCardCourses(state, newCardCourses){
     state.cardCourses = newCardCourses
@@ -20,8 +20,8 @@ export const mutations = {
 export const actions = {
   getCourses: async function ({ commit }) {
     const files = await require.context(`~/contents/`, true, /\.md$/);
-    // let allCourses={...state.allItems} 
-    let allCourses = {}
+    // let allCourses={...state.courses} 
+    const allCourses = {}
     allCourses['home'] = {
       title: "Sobre la página",
       description: "",
@@ -51,10 +51,10 @@ export const actions = {
   getCardCourses: async function ({ commit }) {
     const files = await require.context(`~/contents/`, true, /\index.md$/)
     const keys = files.keys()
-    const auxCards = await Promise.all(keys.map(async key => await import(`~/contents${key.substr(1)}`)
+    const allCardCourses = await Promise.all(keys.map(async key => await import(`~/contents${key.substr(1)}`)
                   .then(file => ({...file.attributes, baseEndPoint:key.split('/')[1] }))))
     
-    auxCards.push(
+    allCardCourses.push(
                   {
                     baseEndPoint:'/', 
                     id:111, 
@@ -96,7 +96,7 @@ export const actions = {
                     disable: true,
                   },
                   )
-    auxCards.sort( (a,b)=> a.id > b.id? 1:-1 )
-    commit('fillCardCourses',auxCards)
+    allCardCourses.sort( (a,b)=> a.id > b.id? 1:-1 )
+    commit('fillCardCourses',allCardCourses)
   }
 }

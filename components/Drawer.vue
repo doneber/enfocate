@@ -35,12 +35,12 @@ export default {
     ...mapActions(["getCourses"]),
     calculaDrawer(url) {
       /* depending of the actual route, we dispaly an especific item's list */
-      if (url === "/"  || url === "/nosotros" ) this.items = this.allItems['home']
-      else this.items = this.allItems[url.split('/')[1]]
+      if (url === "/"  || url === "/nosotros" ) this.items = this.courses['home']
+      else this.items = this.courses[url.split('/')[1]]
     },
   },
   computed: {
-    ...mapState(['allItems','drawer']),
+    ...mapState(['courses','drawer']),
     myDrawer: {
       get() {
         return this.drawer;

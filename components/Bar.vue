@@ -35,13 +35,13 @@ export default {
     Drawer
   },
   computed: {
-    ...mapState(['allItems']),
+    ...mapState(['courses']),
 
     searchFinded() {
       /* SearchFinded searches the input-text from the store*/
       let auxItems = []
-      for (let i in this.allItems)
-        auxItems = auxItems.concat(this.allItems[i].items)
+      for (let i in this.courses)
+        auxItems = auxItems.concat(this.courses[i].items)
 
       auxItems = auxItems.filter(
           (item) =>

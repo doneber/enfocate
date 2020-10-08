@@ -38,9 +38,6 @@ export default {
 .v-application a {
     color: inherit;
 }
-.theme--light.v-application{
-  /* background: #FAFAFA; */
-}
 img {
   max-width: 100%;
   display: block;
