@@ -44,10 +44,7 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
-.padding-blog {
-  padding-left: 9%;
-  padding-right: 9%;
-}
+
 .v-card__text p{
   margin-top: .9em; 
   line-height : 1.4em;

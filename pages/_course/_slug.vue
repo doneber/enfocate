@@ -1,48 +1,43 @@
 <template lang="pug">
   div
-    v-container.pb-5(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-3']")
-      v-card.mt-2(color='primaryMiddle')
-        v-card-text.pt-1
-          .display-2.font-weight-black.mt-2 {{ title }}
-          p {{description}}
-          v-row
-            v-col.my-0.py-0(cols='12' sm='7')
-              v-list-item.pa-0.my-0
-                v-list-item-avatar
-                  v-icon(large) mdi-account
-                v-list-item-content
-                  v-list-item-title.mb-1.subtitle-2 {{ authorName? authorName : 'Autor anónimo' }}
-                  v-list-item-subtitle.caption {{year}}
-            v-col.p-r.my-0.py-0(cols='12' sm='5')
-              v-list-item.py-0
-                v-row(justify-sm='end')
-                  template( v-if='whatsapp' )
-                    v-btn(icon :href='whatsapp' target="_blank")
-                      v-icon mdi-whatsapp
-                  template( v-if='facebook' )
-                    v-btn(icon :href='facebook' target="_blank")
-                      v-icon mdi-facebook
-                  template( v-if='twitter' )
-                    v-btn(icon :href='twitter' target="_blank")
-                      v-icon mdi-twitter
-                  template( v-if='linkedin' )
-                    v-btn(icon :href='linkedin' target="_blank")
-                      v-icon mdi-linkedin
-                  template( v-if='github' )
-                    v-btn(icon :href='github' target="_blank")
-                      v-icon mdi-github
-                  template( v-if='gitlab' )
-                    v-btn(icon :href='gitlab' target="_blank")
-                      v-icon mdi-gitlab
-  
-
-    v-container(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-2']")
-      v-card.mt-0(color='primaryLight')
-        v-card-text.pa-5
+    template(v-if="linkVideo ")
+      div(:class="this.$vuetify.breakpoint.xs?'':this.$vuetify.breakpoint.xl?'padding-video-xl':this.$vuetify.breakpoint.lg?'padding-video-lg':'px-10 pt-8'")
+        div(style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;")
+          iframe(width="560" height="315" style="position: absolute; top:0; left: 0; width: 100%; height: 100%;" :src="linkVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        .px-4
+          .display-1.font-weight-black.mt-2 {{ title }}
+          | {{description}}
           dynamic-markdown(:render-func='renderFunc' :static-render-funcs='staticRenderFuncs' :extra-component='extraComponent')
+          br
+          profile-component( :authorName="authorName" :year="year" :whatsapp="whatsapp" :facebook="facebook" :twitter="twitter" :linkedin="linkedin" :github="github" :gitlab="gitlab")
+    template(v-else)
+      v-container.pb-5(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'']")
+        v-card.mt-2(color='primaryMiddle')
+          v-card-text.pt-1
+            .display-2.font-weight-black.mt-2 {{ title }}
+            p {{description}}
+            profile-component( :authorName="authorName" :year="year" :whatsapp="whatsapp" :facebook="facebook" :twitter="twitter" :linkedin="linkedin" :github="github" :gitlab="gitlab")
+      v-container(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-2']")
+        v-card.mt-0(color='primaryLight')
+          v-card-text.pa-5
+            dynamic-markdown(:render-func='renderFunc' :static-render-funcs='staticRenderFuncs' :extra-component='extraComponent')
 </template>
+<style scoped>
+.padding-blog {
+  padding-left: 9%;
+  padding-right: 9%;
+}
+.padding-video-xl {
+  padding: 2em 16em;
+}
+.padding-video-lg {
+  padding: 2em 10em;
+}
+
+</style>
 <script lang="js">
-  import DynamicMarkdown from "~/components/DynamicMarkdown.vue"
+  import DynamicMarkdown from "~/components/DynamicMarkdown"
+  import ProfileComponent from "~/components/ProfileComponent"
   export default {
     async asyncData ({params, app}) {
       const fileContent = await import(`~/contents/${params.course}/${params.slug}.md`)
@@ -59,12 +54,14 @@
         gitlab: attr.gitlab,
         year: attr.year,
         description: attr.description,
+        icon: attr.icon,
+        linkVideo: attr.linkVideo,
         extraComponent: attr.extraComponent,
         renderFunc: `(${fileContent.vue.render})`,
         staticRenderFuncs: `[${fileContent.vue.staticRenderFns}]`,
       }
     },
-    components: { DynamicMarkdown},
+    components: { DynamicMarkdown, ProfileComponent},
 
   }
 </script>
