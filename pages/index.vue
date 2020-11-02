@@ -40,12 +40,6 @@ export default {
   data: () => ({
     dialog: false,
   }),
-  async created(){
-    await this.getCardCourses()
-  },
-  methods:{
-    ...mapActions(['getCardCourses'])
-  },
   computed: {
     ...mapState(['cardCourses']),
   },

@@ -26,7 +26,7 @@ export const actions = {
       title: "Sobre la página",
       description: "",
       recommendations: [],
-      items: [{ icon: "mdi-information-outline", title: "Información", to: "/nosotros" }]
+      items: [{ icon: "mdi-information-outline", title: "Información", baseEndPoint: "/nosotros" }]
     }
     files.keys().forEach(async key => {
       const fileItem = await import(`~/contents${key.substr(1)}`) // ${key} =~ './POO/01.md'
@@ -43,7 +43,7 @@ export const actions = {
         allCourses[course]['baseEndPoint'] = ('/' + course)
       } else {
         const ref = key.split('.')[1]
-        allCourses[course]['items'].push({ title: attrs.title, to: ref, icon: attrs.icon, block: attrs.block }) // 
+        allCourses[course]['items'].push({ title: attrs.title, baseEndPoint: ref, icon: attrs.icon, block: attrs.block }) // 
       }
     })
     commit('fillCourses', allCourses)

@@ -14,7 +14,7 @@
               v-icon {{subItem.icon}}
             v-list-item-content
               v-list-item-title(v-text='subItem.title')
-        v-list-item(v-else='' :key="`${index}-${item.title}-oneline`" :to='item.to' :disabled='item.block')
+        v-list-item(v-else='' :key="`${index}-${item.title}-oneline`" :to='item.baseEndPoint' :disabled='item.block')
           v-list-item-icon.mr-3
             v-icon {{item.icon}}
           v-list-item-content

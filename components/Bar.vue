@@ -9,7 +9,7 @@
         v-text-field(clearable='' :class="[showSearcher?'':'hidden-xs-only']" placeholder='Buscar' @blur='ocultarBuscador' hide-details='' :autofocus='showSearcher' v-model='textoBuscador')
         v-card.hijo(:light='!this.$vuetify.theme.dark?true:false' color='primaryMiddle' v-click-outside='ocultarTodoElBuscador' v-if='textoBuscador' ma-0='' pa-0='' elevation='6' width='100%')
           v-list(color='primaryMiddle')
-            v-list-item(v-for='(item,index) in searchFinded' :key='index' :to='item.to' @click='ocultarTodoElBuscador()')
+            v-list-item(v-for='(item,index) in searchFinded' :key='index' :to='item.baseEndPoint' @click='ocultarTodoElBuscador()')
               v-list-item-content
                 v-list-item-title(v-text='item.title') {{ item.title }}
       v-spacer.hidden-sm-and-up
@@ -35,18 +35,18 @@ export default {
     Drawer
   },
   computed: {
-    ...mapState(['courses']),
+    ...mapState(['courses', 'cardCourses']),
 
     searchFinded() {
-      /* SearchFinded searches the input-text from the store*/
-      let auxItems = []
-      for (let i in this.courses)
-        auxItems = auxItems.concat(this.courses[i].items)
-
+      /* SearchFinded searches the input-text from the COURSES in store*/
+      // let auxItems = []
+      // for (let i in this.courses)
+      //   auxItems = auxItems.concat(this.courses[i].items)
+      let auxItems = this.cardCourses
       auxItems = auxItems.filter(
           (item) =>
             this.LevenshteinDistance(
-              item.title.toUpperCase(),
+              item.title.toUpperCase().substr(0,this.textoBuscador.length),
               this.textoBuscador.toUpperCase()
             ) < 3 ||
             item.title.toUpperCase().includes(this.textoBuscador.toUpperCase())
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     ...mapMutations(["setDrawer"]),
-
+    ...mapActions(['getCardCourses']),
     LevenshteinDistance: function (a, b) {
       /* Calculates the distance beetween two Strings */
       if (a.length == 0) return b.length;
@@ -103,8 +103,9 @@ export default {
       this.$vuetify.theme.dark = this.modoDark;
     },
   },
-  created() {
+  async created() {
     this.inHome = this.$router.currentRoute.path === '/'
+    await this.getCardCourses()
   },
   watch: {
     $route(to, from) {
