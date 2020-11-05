@@ -4,20 +4,20 @@ v-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
   p.px-4 {{ description }}
   v-row
     v-col(cols="12", sm="12")
-      v-card(height="100%")
+      v-card(height="100%" color='primaryMiddle')
         v-card-title
           P Dirigido a
         v-card-subtitle
           p {{ aimedAt }}
     v-col(cols="12", sm="6")
-      v-card(height="100%")
+      v-card(height="100%" color='primaryMiddle')
         v-card-title
           P ¿Que aprenderas?
         v-card-subtitle
           ul
           li(v-for="i in whatYouWillLearn") {{ i }}
     v-col(cols="12", sm="6")
-      v-card(height="100%")
+      v-card(height="100%" color='primaryMiddle')
         v-card-title
           P Requisitos
         v-card-subtitle
@@ -25,7 +25,7 @@ v-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
             li(v-for="i in requirements") {{ i }}
   center  
     br
-    v-btn( v-if='!drawer' @click='setDrawer(true)')
+    v-btn( v-if='!drawer' @click='setDrawer(true)' color="primaryDark" dark)
       v-icon(left) mdi-menu
       | Ver lecciones  
 </template>

@@ -17,18 +17,19 @@
       v-spacer.hidden-xs-only
       v-btn(icon='' to='/' v-if='!inHome' :class="[!showSearcher?'':'hidden-xs-only']")
         v-icon mdi-home
-      v-btn(:class="[!showSearcher?'':'hidden-xs-only']" @click='cambiarModo()' icon='')
-        v-icon {{ modoDark?'mdi-white-balance-sunny':'mdi-brightness-4'}}
+      v-btn(:class="[!showSearcher?'':'hidden-xs-only']" @click='changeThemeIcon()' icon='')
+        v-icon {{ indexTheme===0?'mdi-brightness-4':indexTheme===1?'mdi-white-balance-sunny':'mdi-weather-night'}}
 </template>
 <script>
 import Drawer from '@/components/Drawer'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   data: () => ({
+    darkThemes: [true, null, false],
+    indexTheme: 1,
     textoBuscador: "",
     showSearcher: false,
     inHome: null,
-    modoDark: true,
     items: { baseEndPoint:''},
   }),
   components:{
@@ -98,14 +99,43 @@ export default {
       this.showSearcher = false;
       this.textoBuscador = "";
     },
-    cambiarModo() {
-      this.modoDark = !this.modoDark;
-      this.$vuetify.theme.dark = this.modoDark;
+    changeThemeIcon() {
+      this.indexTheme++
+      this.indexTheme %= this.darkThemes.length //
+      this.changeTheme(this.indexTheme)
+      localStorage.setItem('themeColor',this.indexTheme)
     },
+    changeTheme(index){
+      if(index==0){
+        this.$vuetify.theme.themes.dark.primaryMiddle = '#272829'
+        this.$vuetify.theme.themes.dark.primaryDark = '#212121'
+        this.$vuetify.theme.themes.dark.primaryLight = '#2f2f2f'
+        this.$vuetify.theme.themes.dark.background = '#212121'
+        this.$vuetify.theme.dark = true;
+      }
+      else if(index==1){
+        this.$vuetify.theme.themes.dark.primaryMiddle = '#263238'
+        this.$vuetify.theme.themes.dark.primaryDark = '#263238'
+        this.$vuetify.theme.themes.dark.primaryLight = '#37474F'
+        this.$vuetify.theme.themes.dark.background = '#2c3940'
+        this.$vuetify.theme.dark = true;
+      }else{
+          // primary: '#212121',
+          // primaryMiddle: '#ECEFF1',
+          // primaryDark: '#455A64',
+          // primaryLight: '#475b65',
+        this.$vuetify.theme.dark = false;
+      }
+    }
   },
   async created() {
     this.inHome = this.$router.currentRoute.path === '/'
     await this.getCardCourses()
+    // check localStorage
+    const savedThemeColor = localStorage.getItem('themeColor')
+    if (savedThemeColor) 
+      this.indexTheme=parseInt(savedThemeColor)
+    this.changeTheme(this.indexTheme)
   },
   watch: {
     $route(to, from) {

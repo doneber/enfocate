@@ -19,17 +19,15 @@ export default {
 </script>
 <style >
 .v-application code {
-  background-color: grey;
   color: whitesmoke;
   font-size: 95%;
 }
-.v-application pre code {
-  background-color: #2d2d2d;
+.v-application pre code, pre {
+  background: var(--v-primaryLight-base) !important;
   /* color: black; */
 }
 .theme--dark.v-application {
-  /* background: #263238; */
-  background: #212121;
+  background: var(--v-background-base);
   color: rgb(249, 249, 249)
 }
 .theme--dark.v-sheet {

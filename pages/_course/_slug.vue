@@ -18,7 +18,7 @@
             p {{description}}
             profile-component( :authorName="authorName" :year="year" :whatsapp="whatsapp" :facebook="facebook" :twitter="twitter" :linkedin="linkedin" :github="github" :gitlab="gitlab")
       v-container(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-2']")
-        v-card.mt-0(color='primaryLight')
+        v-card.mt-0(color='primaryMiddle')
           v-card-text.pa-5
             dynamic-markdown(:render-func='renderFunc' :static-render-funcs='staticRenderFuncs' :extra-component='extraComponent')
 </template>

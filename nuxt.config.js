@@ -89,34 +89,32 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      options: { customProperties: true },
       themes: {
-        // blueGrey: {
-          // primary: '#',
-        //   primaryMiddle: colors.blueGrey.darken4,
-        //   accent: colors.grey.darken3,
-        //   primaryDark: colors.blueGrey.darken3,
-        //   info: colors.teal.lighten1,
-        //   warning: colors.amber.base,
-        //   error: colors.deepOrange.accent4,
-        //   success: colors.green.accent3
-        // },
+        blue: {
+          primary: colors.blueGrey.darken1,
+          primaryMiddle: colors.blueGrey.darken4,
+          primaryDark: colors.blueGrey.darken3,
+          primaryLight: colors.blueGrey.darken4,
+          background: '#263238',
+        },
         dark: {
           primary: '#BDBDBD',
-          primaryMiddle: '#2f2f2f',
+          primaryMiddle: '#272829',
           primaryDark: colors.grey.darken4,
-          primaryLight: colors.grey.darken3,
+          primaryLight: '#2f2f2f',
+          background: '#212121',
         },
         light: {
           primary: '#212121',
           primaryMiddle: colors.blueGrey.lighten5,
-          primaryDark: colors.blueGrey.darken3,
-          primaryLight: colors.grey.lighten4,
+          primaryDark: colors.blueGrey.darken2,
+          primaryLight: '#475b65',
         }
       }
     }
   },
-
+  
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
