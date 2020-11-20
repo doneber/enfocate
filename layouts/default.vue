@@ -20,6 +20,7 @@ export default {
 <style >
 .v-application code {
   color: whitesmoke;
+  background: rgba(0,0,0,0);
   font-size: 95%;
 }
 .v-application pre code, pre {
