@@ -9,3 +9,21 @@
             v-icon.mr-2 mdi-home
             | Volver a casa
 </template>
+<script>
+export default {
+
+  head () {
+    return {
+      title: "Nosotros",
+      htmlAttrs: {
+        lang: "es",
+      },
+      meta: [
+        { name: "author", content: "Eber" },
+        { name: "description", property: "og:description", content: "Aréa de aprendizaje colaborativo", hid: "description" },
+        { property: "og:title", content: "Nosotros" },
+      ]
+    };
+  },
+};
+</script>

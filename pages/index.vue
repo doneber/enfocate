@@ -94,5 +94,17 @@ export default {
   computed: {
     ...mapState(['cardCourses']),
   },
+  head () {
+    return {
+      htmlAttrs: {
+        lang: "es",
+      },
+      meta: [
+        { name: "author", content: "Eber" },
+        { name: "description", property: "og:description", content: "Aréa de aprendizaje colaborativo", hid: "description" },
+        { property: "og:title", content: this.title },
+      ]
+    };
+  },
 };
 </script>

@@ -63,5 +63,17 @@ export default {
       aimedAt: attrs.aimedAt,
     };
   },
+      head () {
+      return {
+        title: this.title,
+        htmlAttrs: {
+          lang: "es",
+        },
+        meta: [
+          { name: "description", property: "og:description", content: this.description, hid: "description" },
+          { property: "og:title", content: this.title },
+        ],
+      };
+    },
 };
 </script>
