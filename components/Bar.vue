@@ -2,8 +2,8 @@
   div
     v-app-bar(app='' clipped-left='' dense='' elevation='1' height='56' dark='' color='primaryDark')
       v-app-bar-nav-icon(@click='setDrawer')
-      v-img.mr-2.mb-1(max-width='50px' src='/icon.png' @click='goHome()')
-      v-toolbar-title.align-center(style='font-weight: bold; font-size : 1.65em;' @click='goHome()' :class="[!showSearcher?'':'hidden-xs-only']") Enfocate
+      v-img.mr-2.mb-1(max-width='50px' src='/icon.png' @click='goHome()' style='cursor: pointer;')
+      v-toolbar-title.align-center(style='font-weight: bold; font-size : 1.65em; cursor: pointer;' @click='goHome()' :class="[!showSearcher?'':'hidden-xs-only']") Enfocate
       v-spacer.hidden-xs-only
       .padre
         v-text-field(clearable='' :class="[showSearcher?'':'hidden-xs-only']" placeholder='Buscar' @blur='ocultarBuscador' hide-details='' :autofocus='showSearcher' v-model='textoBuscador')
