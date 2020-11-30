@@ -23,10 +23,15 @@ export const actions = {
     // let allCourses={...state.courses} 
     const allCourses = {}
     allCourses['home'] = {
-      title: "Sobre la página",
+      title: "Sobre la app",
       description: "",
       recommendations: [],
-      items: [{ icon: "mdi-information-outline", title: "Información", baseEndPoint: "/nosotros" }]
+      items: [
+        { icon: "mdi-home-outline", title: "Home", baseEndPoint: "/" },
+        { icon: "mdi-information-outline", title: "Nosotros", baseEndPoint: "/nosotros" },
+        { icon: "mdi-account-group-outline", title: "Comunidad", baseEndPoint: "/comunidad" },
+        { icon: "mdi-account-box-outline", title: "Contacto", baseEndPoint: "/contacto" },
+    ]
     }
     files.keys().forEach(async key => {
       const fileItem = await import(`~/contents${key.substr(1)}`) // ${key} =~ './POO/01.md'

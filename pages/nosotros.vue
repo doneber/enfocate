@@ -1,17 +1,60 @@
 <template lang="pug">
-  v-container
-    v-row(justify='center')
-      v-col(md='10')
-        center
-          p
-            | La verdad es que dio flojera hacer esta parte de la página. Solo checkea lo que hay, vale? :'D
-          v-btn(to='/' color="primaryDark" dark)
-            v-icon.mr-2 mdi-home
-            | Volver a casa
+  div
+    v-row.mx-0(align='center' justify='center' style="min-height:500px" class="primaryMiddle")
+      v-col.text-center(cols="12" sm="12")
+        h1.display-3.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+          | Aprende a tu ritmo
+        h3.font-weight-light
+          | ¡Toma el control de tu aprendizaje! <br> Encuentra los recursos necesarios para vencer tus materias
+    v-row.mx-0(align='center' justify='center' style="min-height:400px" )
+      v-col.text-center
+        p.font-weight-thin(:class="[heightTitle]")
+          | Enfocate es una aplicación web multiplataforma para <br> brindar contenido educativo orientado a los estudiantes universitarios.<br>
+        p.font-weight-thin(:class="[heightTitle]")
+          | Este proyecto también busca fomentar la enseñanza como <br> forma de aprendizaje y crecimiento personal.
+    v-row.mx-0(align='center' justify='center' style="min-height:400px" class="primaryMiddle")
+      v-col.text-center(cols="12" sm="12")
+        h1.display-3.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+          | Crea tu propio contenido
+        h3.font-weight-light
+          | ¡Elabora contenido y comparte tus conocimientos! <br> Publica tu material en nuestra plataforma
+    v-row.mx-0(align='center' justify='center' style="min-height:500px")
+      v-container
+        v-row.mx-0
+          v-col.text-center(cols="12" sm="4")
+            h1.display-2.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+              | Misión
+            p.font-weight-light
+              | Crear un mundo donde cualquier persona pueda enseñar y aprender con cualquier persona
+          v-col.text-center(cols="12" sm="4")
+            h1.display-2.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+              | Visión
+            p.font-weight-light
+              | Ser un espacio de educación y referente a nivel nacional para la difusión de la educación autodidacta
+          v-col.text-center(cols="12" sm="4")
+            h1.display-2.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+              | Valores
+            p.font-weight-light
+              | Colaboración <br> Aprendizaje continuo <br> Compartimos lo que sabemos
 </template>
 <script>
 export default {
-
+    computed: {
+      heightTitle() {
+        switch (this.$vuetify.breakpoint.name) {
+          case "xs":
+            return "";
+          case "sm":
+            return "";
+          case "md":
+            return "display-1";
+          case "lg":
+            return "display-1";
+          case "xl":
+            return "display-1";
+        }
+      },
+  },
   head () {
     return {
       title: "Nosotros",
