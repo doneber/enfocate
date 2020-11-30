@@ -7,7 +7,7 @@
       template(v-for='(item,index) in items.items')
         v-list-item(:key="`${index}-${item.title}`" :to='item.baseEndPoint' :disabled='item.block' @click="itemClicked(`${index}-${item.title}`)")
           v-list-item-icon.mr-3
-            v-icon {{ checkList.includes(`${index}-${item.title}`)?antiIcon(item.icon):item.icon}}
+            v-icon( :color="checkList.includes(`${index}-${item.title}`)?'amber accent-4':''") {{ checkList.includes(`${index}-${item.title}`)?antiIcon(item.icon):item.icon}}
           v-list-item-content
             v-list-item-title(v-text='item.title')
         v-divider(:key="`${index}+${item.title}-divider`")
@@ -31,13 +31,11 @@ export default {
       else this.items = this.courses[url.split('/')[1]]
     },
     itemClicked(key){
-      console.log("clicked",key);
-      console.log(this.checkList);
+      console.log(key);
+      if (key === "0-Home"  || key === "1-Nosotros" || key === "2-Comunidad" || key === "3-Contacto") return;
       const index = this.checkList.indexOf(key)
-        if (index > -1) {
-          this.checkList.splice(index, 1);
-        }
-        else this.checkList.push(key)
+      if (index > -1) this.checkList.splice(index, 1)
+      else this.checkList.push(key)
     },
     antiIcon(icon){
       const miMapa = new Map();
