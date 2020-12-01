@@ -1,7 +1,8 @@
 <template lang="pug">
   div
     v-app-bar(app='' clipped-left='' dense='' elevation='1' height='56' dark='' color='primaryDark')
-      v-app-bar-nav-icon(@click='setDrawer')
+      v-app-bar-nav-icon(@click='setDrawer') 
+        v-icon {{ inPage?'mdi-menu':(drawer?'mdi-chevron-left':'mdi-chevron-right')}}
       v-img.mr-2.mb-1(max-width='45px' src='/icon.png' @click='goHome()' style='cursor: pointer;')
       v-toolbar-title.align-center(style='font-weight: bold; font-size : 1.65em; cursor: pointer;' @click='goHome()' :class="[!showSearcher?'':'hidden-xs-only']") Enfocate
       v-spacer.hidden-xs-only
@@ -30,13 +31,14 @@ export default {
     textoBuscador: "",
     showSearcher: false,
     inHome: null,
+    inPage: null,
     items: { baseEndPoint:''},
   }),
   components:{
     Drawer
   },
   computed: {
-    ...mapState(['courses', 'cardCourses']),
+    ...mapState(['courses', 'cardCourses','drawer']),
 
     searchFinded() {
       /* SearchFinded searches the input-text from the COURSES in store*/
@@ -130,6 +132,7 @@ export default {
   },
   async created() {
     this.inHome = this.$router.currentRoute.path === '/'
+    this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(this.$router.currentRoute.path)
     await this.getCardCourses()
     // check localStorage
     const savedThemeColor = localStorage.getItem('themeColor')
@@ -140,6 +143,7 @@ export default {
   watch: {
     $route(to, from) {
       this.inHome = to.path === '/'
+      this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(to.path)
     },
   },
 };

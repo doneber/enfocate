@@ -5,7 +5,7 @@
         v-col(md='12')
           //- v-card.mx-auto.elevation-0( color="primaryMiddle" )
           //-   v-card-text
-          p.display-2.text-center Bienvenido
+          p.display-2.text-center.font-weight-medium Bienvenido
           p.text-center.font-weight-light Cursos de programación
       v-row
         v-col(v-for='(course, index) in cardCourses' cols='12' sm='6' lg='4' :key="index+'-course'")
