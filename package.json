@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "markdown-it": "^11.0.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-prism": "^2.1.2",
     "nuxt": "^2.13.0"
   },
