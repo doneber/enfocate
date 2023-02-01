@@ -25,7 +25,7 @@ v-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
             li(v-for="i in requirements") {{ i }}
   center  
     br
-    v-btn( v-if='!drawer' @click='setDrawer(true)' color="primaryDark" dark)
+    v-btn( v-if='!drawer' @click='setDrawer(true)' color="primaryDark")
       v-icon(left) mdi-menu
       | Ver lecciones  
 </template>

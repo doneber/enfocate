@@ -27,6 +27,9 @@ export default {
   background: var(--v-primaryLight-base) !important;
   /* color: black; */
 }
+.theme--light.v-application {
+  background: var(--v-background-base);
+}
 .theme--dark.v-application {
   background: var(--v-background-base);
   color: rgb(249, 249, 249)

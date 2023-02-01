@@ -8,7 +8,7 @@
         h3.font-weight-light
           | Sé parte de la comunidad en <b>discord</b> y comienza a compartir los demás<br>
         p.font-weight-light.font-italic La mejor forma de aprender es enseñando
-        v-btn.py-4(x-large text tile href="https://discord.gg/HXBhXJJ9kn" target="_blank" )
+        v-btn.py-4(x-large text tile href="https://discord.doneber.dev" target="_blank" )
           v-icon.mr-5(x-large right) mdi-discord
           |  Quiero unirme!
 </template>

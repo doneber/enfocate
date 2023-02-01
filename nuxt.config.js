@@ -91,25 +91,17 @@ export default {
     theme: {
       options: { customProperties: true },
       themes: {
-        blue: {
-          primary: colors.blueGrey.darken1,
-          primaryMiddle: colors.blueGrey.darken4,
-          primaryDark: colors.blueGrey.darken3,
-          primaryLight: colors.blueGrey.darken4,
-          background: '#263238',
-        },
         dark: {
-          primary: '#BDBDBD',
           primaryMiddle: '#272829',
-          primaryDark: colors.grey.darken4,
-          primaryLight: '#2f2f2f',
+          primaryDark: '#212121',
+          appBarColor: '#212121',
           background: '#212121',
         },
         light: {
-          primary: '#212121',
-          primaryMiddle: colors.blueGrey.lighten5,
-          primaryDark: colors.blueGrey.darken2,
-          primaryLight: '#475b65',
+          primaryMiddle: '#fff',
+          primaryDark: '#fff',
+          appBarColor: '#fff',
+          background: '#ECEFF1',
         }
       }
     }

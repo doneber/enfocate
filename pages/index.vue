@@ -17,7 +17,7 @@
             v-card-actions.px-4
               span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") {{course.disable?'No disponible':'COMIENZA AHORA'}}
               v-spacer
-              v-chip(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark') INF-{{course.id}}
+              v-chip.font-weight-bold(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark' ) INF-{{course.id}}
       v-row(justify='center')
         v-col(md='10')
           p.text-center.font-weight-light Cursos en construcción
@@ -31,7 +31,7 @@
             v-card-actions.px-4
               span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") {{course.disable?'No disponible':'COMIENZA AHORA'}}
               v-spacer
-              v-chip(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark') INF-{{course.id}}
+              v-chip(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark' style="filter: grayscale(1)") INF-{{course.id}}
     v-dialog(v-model='dialog' max-width='500')
       v-card(light='')
         v-card-title
@@ -47,7 +47,7 @@
             li
               | Si estas en desktop entonces en la parte superior de tu navegador te aparecerá el signo (+), el cual te permitirá instalarlo en tu compu
           |           TIP: Recuerda usar el boton menu arriba a la izquierda todo el tiempo. El tema Light, etc
-    v-btn(fixed dark fab bottom right style='bottom:1em; right:1em' @click='dialog=true' color="primaryDark")
+    v-btn(fixed fab bottom right style='bottom:1em; right:1em' @click='dialog=true' color="primaryDark")
       v-icon mdi-help
 </template>
 <script>

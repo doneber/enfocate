@@ -1,10 +1,11 @@
 <template lang="pug">
   div
-    v-app-bar(app='' clipped-left='' dense='' elevation='1' height='56' dark='' color='primaryDark')
+    v-app-bar(app='' clipped-left='' dense='' elevation='1' height='56' :dark='darkModeTheme' color='appBarColor')
       v-app-bar-nav-icon(@click='setDrawer') 
         v-icon {{ inPage?'mdi-menu':(drawer?'mdi-chevron-left':'mdi-chevron-right')}}
-      v-img.mr-2.mb-1(max-width='45px' src='/icon.png' @click='goHome()' style='cursor: pointer;')
-      v-toolbar-title.align-center(style='font-weight: bold; font-size : 1.65em; cursor: pointer;' @click='goHome()' :class="[!showSearcher?'':'hidden-xs-only']") Enfocate
+      v-img.mr-2.mb-1.mt-1(max-width='45px' src='/icon.png' @click='goHome()' style='cursor: pointer;')
+      //- v-toolbar-title.align-center(style='font-weight: bold; font-size : 1.65em; cursor: pointer;' @click='goHome()' :class="[!showSearcher?'':'hidden-xs-only']")
+      img(height="28" src='/logo.svg' @click='goHome()' style='cursor: pointer;' :class="[!showSearcher?'':'hidden-xs-only', !darkModeTheme?'invert':'']")
       v-spacer.hidden-xs-only
       .padre
         v-text-field(clearable='' :class="[showSearcher?'':'hidden-xs-only']" placeholder='Buscar' @blur='ocultarBuscador' hide-details='' :autofocus='showSearcher' v-model='textoBuscador')
@@ -19,15 +20,14 @@
       v-btn(icon='' to='/' v-if='!inHome' :class="[!showSearcher?'':'hidden-xs-only']")
         v-icon mdi-home
       v-btn(:class="[!showSearcher?'':'hidden-xs-only']" @click='changeThemeIcon()' icon='')
-        v-icon {{ indexTheme===0?'mdi-brightness-4':indexTheme===1?'mdi-white-balance-sunny':'mdi-weather-night'}}
+        v-icon {{ darkModeTheme?'mdi-white-balance-sunny':'mdi-weather-night'}}
 </template>
 <script>
 import Drawer from '@/components/Drawer'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   data: () => ({
-    darkThemes: [true, null, false],
-    indexTheme: 1,
+    darkModeTheme: true,
     textoBuscador: "",
     showSearcher: false,
     inHome: null,
@@ -102,30 +102,23 @@ export default {
       this.textoBuscador = "";
     },
     changeThemeIcon() {
-      this.indexTheme++
-      this.indexTheme %= this.darkThemes.length //
-      this.changeTheme(this.indexTheme)
-      localStorage.setItem('themeColor',this.indexTheme)
+      this.darkModeTheme = !this.darkModeTheme
+      this.changeTheme(this.darkModeTheme)
+      // localStorage.setItem('themeColor',this.darkModeTheme)
     },
-    changeTheme(index){
-      if(index==0){
+    changeTheme(darkMode){
+      if(darkMode){
         this.$vuetify.theme.themes.dark.primaryMiddle = '#272829'
         this.$vuetify.theme.themes.dark.primaryDark = '#212121'
-        this.$vuetify.theme.themes.dark.primaryLight = '#2f2f2f'
+        this.$vuetify.theme.themes.dark.appBarColor = '#212121'
         this.$vuetify.theme.themes.dark.background = '#212121'
         this.$vuetify.theme.dark = true;
       }
-      else if(index==1){
-        this.$vuetify.theme.themes.dark.primaryMiddle = '#263238'
-        this.$vuetify.theme.themes.dark.primaryDark = '#263238'
-        this.$vuetify.theme.themes.dark.primaryLight = '#37474F'
-        this.$vuetify.theme.themes.dark.background = '#2c3940'
-        this.$vuetify.theme.dark = true;
-      }else{
-          // primary: '#212121',
-          // primaryMiddle: '#ECEFF1',
-          // primaryDark: '#455A64',
-          // primaryLight: '#475b65',
+      else {
+        this.$vuetify.theme.themes.light.primaryMiddle = '#fff'
+        this.$vuetify.theme.themes.light.primaryDark = '#fff'
+        this.$vuetify.theme.themes.light.appBarColor = '#fff'
+        this.$vuetify.theme.themes.light.background = '#ECEFF1'
         this.$vuetify.theme.dark = false;
       }
     }
@@ -135,10 +128,10 @@ export default {
     this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(this.$router.currentRoute.path)
     await this.getCardCourses()
     // check localStorage
-    const savedThemeColor = localStorage.getItem('themeColor')
-    if (savedThemeColor) 
-      this.indexTheme=parseInt(savedThemeColor)
-    this.changeTheme(this.indexTheme)
+    // const savedThemeColor = localStorage.getItem('themeColor')
+    // if (savedThemeColor) 
+    //   this.darkModeTheme=parseInt(savedThemeColor)
+    this.changeTheme(this.darkModeTheme)
   },
   watch: {
     $route(to, from) {
@@ -149,6 +142,9 @@ export default {
 };
 </script>
 <style scoped>
+.invert {
+  filter: invert(.8);
+}
 .padre {
   position: relative;
 }

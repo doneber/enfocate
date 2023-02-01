@@ -7,17 +7,13 @@
           | Contacto
         h3.font-weight-light
           | Si tienes dudas sobre el proyecto o quieres saber mas sobre él <br> puedes comunicarte por los siguientes medios<br>
-        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://twitter.com/doneber98" target="_blank" )
+        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://twitter.com/doneberdev" target="_blank" )
           v-icon.mr-2( right) mdi-twitter
-        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://api.whatsapp.com/send?phone=59168022770&text=Saludos" target="_blank" )
-          v-icon.mr-2( right) mdi-whatsapp
-        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://www.facebook.com/doneber98" target="_blank" )
+        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://www.facebook.com/doneberdev" target="_blank" )
           v-icon.mr-2( right) mdi-facebook
         v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://github.com/doneber" target="_blank" )
           v-icon.mr-2( right) mdi-github
-        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="https://gitlab.com/doneber" target="_blank" )
-          v-icon.mr-2( right) mdi-gitlab
-        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="mailto:enfocate.tech@gmail.com" target="_blank" )
+        v-btn.mx-0.px-0( icon fab class="primaryMiddle" href="mailto:doneber.dev@gmail.com" target="_blank" )
           v-icon.mr-2( right) mdi-email
         
 </template>
