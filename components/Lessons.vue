@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-list.py-0
+  v-list.py-0(color='primaryMiddle')
     template(v-for='(item,index) in lessons')
       v-list-item(:key="`${index}-${item.title}`" :to='item.baseEndPoint' :disabled='item.block' @click="itemClicked(`${index}-${item.title}`)")
         v-list-item-icon.mr-3

@@ -1,32 +1,37 @@
 <template lang="pug">
 v-container.super-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
   p.text-center.font-weight-black(:class="[heightTitle]") {{ title }}
-  p.px-4 {{ description }}
   v-row
     v-col(cols="12", sm="12")
       v-card(height="100%" color='primaryMiddle')
+        v-card-subtitle
+          p {{ description }}
+    v-col(cols="12", sm="12")
+      v-card(height="100%" color='primaryMiddle')
         v-card-title
-          P Dirigido a
+          h3.text-h6.ma-0 Dirigido a
         v-card-subtitle
           p {{ aimedAt }}
     v-col(cols="12", sm="6")
       v-card(height="100%" color='primaryMiddle')
         v-card-title
-          P ¿Que aprenderas?
+          h3.text-h6.ma-0 ¿Que aprenderas?
         v-card-subtitle
           ul
-          li(v-for="i in whatYouWillLearn") {{ i }}
+            li(v-for="i in whatYouWillLearn") {{ i }}
     v-col(cols="12", sm="6")
       v-card(height="100%" color='primaryMiddle')
         v-card-title
-          P Requisitos
+          h3.text-h6.ma-0 Requisitos
         v-card-subtitle
           ul
             li(v-for="i in requirements") {{ i }}
-  center  
-    br
-    h2 Lecciones
-    lessons
+    v-col(cols="12")
+      v-card(color='primaryMiddle')
+        v-card-title
+          h3.text-h6.ma-0.ml-4 Lecciones
+        v-card-subtitle
+          lessons
 </template>
 <script>
 import { mapState, mapMutations } from "vuex";
