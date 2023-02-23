@@ -3,15 +3,15 @@
     div.primaryMiddle
       v-container
         v-row(align='center' justify='center' class="super-container" style="min-height:60vh;")
-          v-col.text-center(cols="12" sm="7" xs="12" :class="[$vuetify.breakpoint.name == 'xs'?'px-0':'px-5']")
-            h1.font-weight-bold(:class="[$vuetify.breakpoint.name == 'xs'?'display-1':'display-2']")
+          v-col.py-auto.my-auto.text-center(align='center' justify='center' cols="12" sm="7" xs="12" :class="[$vuetify.breakpoint.name == 'xs'?'px-0':'px-5']" :style="{'height':$vuetify.breakpoint.name == 'xs'?'65vh':'auto'}" style="display:grid; place-content:center;")
+            h1.font-weight-bold.display-1
               | ¡Toma el control de tu aprendizaje!
             h3.font-weight-light
               | Un área de aprendizaje colaborativo para todo tipo estudiantes.
               | Ser autodidacta no significa que estes solo contra internet.
-            v-btn.my-6.white--text(x-large style="background: #ee9f2f;" href="#cursos")
+            v-btn.my-6.white--text.mx-auto(x-large style="background: #ee9f2f; width: fit-content;" href="#cursos")
               | COMIENZA AHORA
-          v-col.text-center(cols="12" sm="5" xs="12" :class="[$vuetify.breakpoint.name == 'sm'?'px-0':'px-15']")
+          v-col.text-center(cols="12" sm="5" xs="12")
             div.video-player()
               div(@click="playVideo()")
                 img(src='https://img.youtube.com/vi/qopYgsT_1Zw/maxresdefault.jpg')
@@ -22,7 +22,7 @@
     v-container.super-container(id="cursos" style="padding-top: 85px;")
       v-row(justify='center')
         v-col(md='12')
-          h2.display-1.text-center.font-weight-regular Cursos de Programación 💻
+          h2.text-h4.text-center.font-weight-regular Cursos de Programación 💻
       v-row
         v-col(v-for='(course, index) in cardCourses' cols='12' sm='6' lg='4' :key="index+'-course'")
           v-card.mx-auto(:to='course.baseEndPoint' height='100%' color="primaryMiddle" )
@@ -42,10 +42,9 @@
             | Comunidad
           h3.font-weight-light
             | Sé parte de la comunidad en <b>Discord</b> y comienza a compartir los demás<br>
-          p 👇 <br>
+          p.mb-1 👇 <br>
           v-btn.py-4(x-large text tile href="https://discord.doneber.dev" target="_blank" )
             | Quiero unirme!
-          p.font-weight-light.font-italic "La mejor forma de aprender es enseñando"
     v-container.super-container
       v-row.mx-0(style="min-height:15vh")
       v-row(justify='center')
@@ -83,16 +82,16 @@
                 | ¡Elabora contenido y comparte tus conocimientos! <br> Publica tu material en nuestra plataforma
               h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
                 | Misión
-              p.font-weight-light(style="max-width: 650px; margin: auto;")
+              p.font-weight-light(style="max-width: 450px; margin: auto;")
                 | Crear un mundo donde cualquier persona pueda enseñar y aprender con cualquier persona
               h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
                 | Visión
-              p.font-weight-light(style="max-width: 650px; margin: auto;")
+              p.font-weight-light(style="max-width: 450px; margin: auto;")
                 | Ser un espacio de educación y referente a nivel nacional para la difusión de la educación autodidacta
               h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
                 | Valores
-              p.font-weight-light(style="max-width: 650px; margin: auto;")
-                | Colaboración <br> Aprendizaje continuo <br> Compartimos lo que sabemos
+              p.font-weight-light(style="max-width: 450px; margin: auto;")
+                | - Colaboración <br> - Aprendizaje continuo <br> - Compartimos lo que sabemos
     div.super-container
       v-row.mx-0(style="min-height:15vh")
       v-row.mx-0(align='center' justify='center' style="min-height:55vh")
