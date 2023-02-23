@@ -1,5 +1,5 @@
 <template lang="pug">
-v-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
+v-container.super-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
   p.text-center.font-weight-black(:class="[heightTitle]") {{ title }}
   p.px-4 {{ description }}
   v-row
@@ -25,13 +25,16 @@ v-container(:class="[!this.$vuetify.breakpoint.xs ? 'padding-blog' : 'px-3']")
             li(v-for="i in requirements") {{ i }}
   center  
     br
-    v-btn( v-if='!drawer' @click='setDrawer(true)' color="primaryDark")
-      v-icon(left) mdi-menu
-      | Ver lecciones  
+    h2 Lecciones
+    lessons
 </template>
 <script>
 import { mapState, mapMutations } from "vuex";
+import lessons from "@/components/Lessons.vue";
 export default {
+  components: {
+    lessons,
+  },
   methods: {
     ...mapMutations(["setDrawer"]),
   },

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.super-container
     template(v-if="linkVideo ")
       div(:class="this.$vuetify.breakpoint.xs?'':this.$vuetify.breakpoint.xl?'padding-video-xl':this.$vuetify.breakpoint.lg?'padding-video-lg':'px-10 pt-8'")
         div(style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;")
@@ -28,7 +28,7 @@
   padding-right: 9%;
 }
 .padding-video-xl {
-  padding: 2em 16em;
+  padding: 2em 0;
 }
 .padding-video-lg {
   padding: 2em 10em;

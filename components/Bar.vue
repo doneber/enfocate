@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     v-app-bar(app='' clipped-left='' dense='' elevation='1' height='56' :dark='darkModeTheme' color='appBarColor')
-      v-app-bar-nav-icon(@click='setDrawer') 
+      v-app-bar-nav-icon(v-if="displayDrawerIcon" @click='setDrawer') 
         v-icon {{ inPage?'mdi-menu':(drawer?'mdi-chevron-left':'mdi-chevron-right')}}
       v-img.mr-2.mb-1.mt-1(max-width='45px' src='/icon.png' @click='goHome()' style='cursor: pointer;')
       //- v-toolbar-title.align-center(style='font-weight: bold; font-size : 1.65em; cursor: pointer;' @click='goHome()' :class="[!showSearcher?'':'hidden-xs-only']")
@@ -17,8 +17,6 @@
       v-spacer.hidden-sm-and-up
       v-icon(@click='mostrarBuscador()') mdi-magnify
       v-spacer.hidden-xs-only
-      v-btn(icon='' to='/' v-if='!inHome' :class="[!showSearcher?'':'hidden-xs-only']")
-        v-icon mdi-home
       v-btn(:class="[!showSearcher?'':'hidden-xs-only']" @click='changeThemeIcon()' icon='')
         v-icon {{ darkModeTheme?'mdi-white-balance-sunny':'mdi-weather-night'}}
 </template>
@@ -30,16 +28,15 @@ export default {
     darkModeTheme: true,
     textoBuscador: "",
     showSearcher: false,
-    inHome: null,
     inPage: null,
     items: { baseEndPoint:''},
+    displayDrawerIcon: false,
   }),
   components:{
     Drawer
   },
   computed: {
     ...mapState(['courses', 'cardCourses','drawer']),
-
     searchFinded() {
       /* SearchFinded searches the input-text from the COURSES in store*/
       // let auxItems = []
@@ -124,7 +121,6 @@ export default {
     }
   },
   async created() {
-    this.inHome = this.$router.currentRoute.path === '/'
     this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(this.$router.currentRoute.path)
     await this.getCardCourses()
     // check localStorage
@@ -132,11 +128,14 @@ export default {
     // if (savedThemeColor) 
     //   this.darkModeTheme=parseInt(savedThemeColor)
     this.changeTheme(this.darkModeTheme)
+    //
+    const currentPath = this.$router.currentRoute.path
+    this.displayDrawerIcon = currentPath.split('/').length > 2
   },
   watch: {
-    $route(to, from) {
-      this.inHome = to.path === '/'
+    $route(to) {
       this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(to.path)
+      this.displayDrawerIcon = to.path.split('/').length > 2
     },
   },
 };
