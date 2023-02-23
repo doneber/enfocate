@@ -17,7 +17,7 @@
       v-spacer.hidden-sm-and-up
       v-icon(@click='mostrarBuscador()') mdi-magnify
       v-spacer.hidden-xs-only
-      v-btn(:class="[!showSearcher?'':'hidden-xs-only']" @click='changeThemeIcon()' icon='')
+      v-btn(:class="[!showSearcher?'':'hidden-xs-only']" @click='changeTheme()' icon='')
         v-icon {{ darkModeTheme?'mdi-white-balance-sunny':'mdi-weather-night'}}
 </template>
 <script>
@@ -25,18 +25,18 @@ import Drawer from '@/components/Drawer'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   data: () => ({
-    darkModeTheme: true,
+    darkModeTheme: false,
     textoBuscador: "",
     showSearcher: false,
     inPage: null,
-    items: { baseEndPoint:''},
+    items: { baseEndPoint: '' },
     displayDrawerIcon: false,
   }),
-  components:{
+  components: {
     Drawer
   },
   computed: {
-    ...mapState(['courses', 'cardCourses','drawer']),
+    ...mapState(['courses', 'cardCourses', 'drawer']),
     searchFinded() {
       /* SearchFinded searches the input-text from the COURSES in store*/
       // let auxItems = []
@@ -44,13 +44,13 @@ export default {
       //   auxItems = auxItems.concat(this.courses[i].items)
       let auxItems = this.cardCourses
       auxItems = auxItems.filter(
-          (item) =>
-            this.LevenshteinDistance(
-              item.title.toUpperCase().substr(0,this.textoBuscador.length),
-              this.textoBuscador.toUpperCase()
-            ) < 3 ||
-            item.title.toUpperCase().includes(this.textoBuscador.toUpperCase())
-        )
+        (item) =>
+          this.LevenshteinDistance(
+            item.title.toUpperCase().substr(0, this.textoBuscador.length),
+            this.textoBuscador.toUpperCase()
+          ) < 3 ||
+          item.title.toUpperCase().includes(this.textoBuscador.toUpperCase())
+      )
       return auxItems
     },
   },
@@ -98,43 +98,28 @@ export default {
       this.showSearcher = false;
       this.textoBuscador = "";
     },
-    changeThemeIcon() {
+    changeTheme() {
       this.darkModeTheme = !this.darkModeTheme
-      this.changeTheme(this.darkModeTheme)
+      this.$vuetify.theme.dark = this.darkModeTheme;
       // localStorage.setItem('themeColor',this.darkModeTheme)
     },
-    changeTheme(darkMode){
-      if(darkMode){
-        this.$vuetify.theme.themes.dark.primaryMiddle = '#272829'
-        this.$vuetify.theme.themes.dark.primaryDark = '#212121'
-        this.$vuetify.theme.themes.dark.appBarColor = '#212121'
-        this.$vuetify.theme.themes.dark.background = '#212121'
-        this.$vuetify.theme.dark = true;
-      }
-      else {
-        this.$vuetify.theme.themes.light.primaryMiddle = '#fff'
-        this.$vuetify.theme.themes.light.primaryDark = '#fff'
-        this.$vuetify.theme.themes.light.appBarColor = '#fff'
-        this.$vuetify.theme.themes.light.background = '#ECEFF1'
-        this.$vuetify.theme.dark = false;
-      }
-    }
   },
   async created() {
-    this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(this.$router.currentRoute.path)
+    this.$vuetify.theme.dark = this.darkModeTheme
+    this.inPage = ['/', '/nosotros', '/comunidad', '/contacto'].includes(this.$router.currentRoute.path)
     await this.getCardCourses()
     // check localStorage
     // const savedThemeColor = localStorage.getItem('themeColor')
     // if (savedThemeColor) 
     //   this.darkModeTheme=parseInt(savedThemeColor)
-    this.changeTheme(this.darkModeTheme)
+    // this.changeTheme(this.darkModeTheme)
     //
     const currentPath = this.$router.currentRoute.path
     this.displayDrawerIcon = currentPath.split('/').length > 2
   },
   watch: {
     $route(to) {
-      this.inPage = ['/','/nosotros','/comunidad','/contacto'].includes(to.path)
+      this.inPage = ['/', '/nosotros', '/comunidad', '/contacto'].includes(to.path)
       this.displayDrawerIcon = to.path.split('/').length > 2
     },
   },
@@ -144,9 +129,11 @@ export default {
 .invert {
   filter: invert(.8);
 }
+
 .padre {
   position: relative;
 }
+
 .hijo {
   position: absolute;
   margin: 0;

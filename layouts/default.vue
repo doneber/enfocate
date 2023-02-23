@@ -40,7 +40,7 @@ export default {
 }
 
 .v-application code {
-  color: whitesmoke;
+  /* color: whitesmoke; */
   background: rgba(0, 0, 0, 0);
   font-size: 95%;
 }
@@ -57,11 +57,16 @@ pre {
 
 .theme--dark.v-application {
   background: var(--v-background-base);
-  color: rgb(249, 249, 249)
+  /* color: rgb(249, 249, 249) */
 }
-
+.theme--dark.v-card > .v-card__text, .theme--dark.v-card > .v-card__subtitle {
+  color: rgba(255, 255, 255, 0.81);
+}
+/* .theme--light.v-card > .v-card__text, .theme--light.v-card > .v-card__subtitle {
+  color: rgba(55, 53, 47, 0.81);
+} */
 .theme--dark.v-sheet {
-  color: rgb(245, 245, 245)
+  /* color: rgb(245, 245, 245) */
 }
 
 .v-application a {

@@ -92,7 +92,7 @@ export default {
       options: { customProperties: true },
       themes: {
         dark: {
-          primaryMiddle: '#272829',
+          primaryMiddle: '#191919',
           primaryDark: '#212121',
           appBarColor: '#212121',
           background: '#212121',
