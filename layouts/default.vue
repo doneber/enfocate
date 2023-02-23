@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app
     Bar
-    drawer
+    drawer(v-if="display")
     v-main
       nuxt(style='min-height:100vh')
       foot
@@ -15,31 +15,59 @@ export default {
   components: {
     Bar, drawer, Foot
   },
+  created() {
+    const currentPath = this.$router.currentRoute.path
+    this.display = currentPath.split('/').length > 2
+  },
+  data: () => ({
+    display: true,
+  }),
+  watch: {
+    $route(to) {
+      this.display = to.path.split('/').length > 2
+    }
+  }
 };
 </script>
 <style >
+* {
+  scroll-behavior: smooth;
+}
+
+.super-container {
+  margin: auto;
+  width: min(100%, 1300px);
+}
+
 .v-application code {
   color: whitesmoke;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   font-size: 95%;
 }
-.v-application pre code, pre {
+
+.v-application pre code,
+pre {
   background: var(--v-primaryLight-base) !important;
   /* color: black; */
 }
+
 .theme--light.v-application {
   background: var(--v-background-base);
 }
+
 .theme--dark.v-application {
   background: var(--v-background-base);
   color: rgb(249, 249, 249)
 }
+
 .theme--dark.v-sheet {
   color: rgb(245, 245, 245)
 }
+
 .v-application a {
-    color: inherit;
+  color: inherit;
 }
+
 img {
   max-width: 100%;
   display: block;
@@ -47,15 +75,24 @@ img {
   margin-right: auto;
 }
 
-.v-card__text p{
-  margin-top: .9em; 
-  line-height : 1.4em;
+/* .theme--dark .v-card__text p{
+  color: white !important;
 }
-ul > li, ol > li {
+.theme--light .v-card__text p{
+  color: black !important;
+} */
+.v-card__text p {
+  margin-top: .9em;
+  line-height: 1.4em;
+}
+
+ul>li,
+ol>li {
   font-size: 1.18em;
-  line-height : 1.5em;
+  line-height: 1.5em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 p {
   font-size: 1.25em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
