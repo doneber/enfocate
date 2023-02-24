@@ -34,6 +34,10 @@ export default {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3 {
+  line-height: 1.3;
+}
+
 .super-container {
   margin: auto;
   width: min(100%, 1300px);
@@ -60,13 +64,10 @@ pre {
   /* color: rgb(249, 249, 249) */
 }
 .theme--dark.v-card > .v-card__text, .theme--dark.v-card > .v-card__subtitle {
-  color: rgba(255, 255, 255, 0.81);
+  color: #d4d4d4;
 }
-/* .theme--light.v-card > .v-card__text, .theme--light.v-card > .v-card__subtitle {
-  color: rgba(55, 53, 47, 0.81);
-} */
-.theme--dark.v-sheet {
-  /* color: rgb(245, 245, 245) */
+.theme--light.v-card > .v-card__text, .theme--light.v-card > .v-card__subtitle {
+  color: #555;
 }
 
 .v-application a {

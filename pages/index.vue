@@ -30,7 +30,7 @@ div
           v-card-text.mt-0.pt-0
             | {{ course.shortDescription }}
           v-card-actions.px-4
-            span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") {{course.disable?'No disponible':'COMIENZA AHORA'}}
+            span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") {{course.disable?'No disponible':'TOMAR CURSO'}}
             v-spacer
             v-chip.font-weight-bold(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark' ) INF-{{course.id}}
   div

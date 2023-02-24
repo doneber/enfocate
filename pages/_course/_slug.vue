@@ -23,11 +23,11 @@ div.super-container
           dynamic-markdown(:render-func='renderFunc' :static-render-funcs='staticRenderFuncs' :extra-component='extraComponent')
   v-container(:class="[!this.$vuetify.breakpoint.xs?'padding-blog':'px-2']")
     v-row
-      v-col(cols="12", sm="6")
+      v-col(cols="6")
         v-btn(v-if="prev" :to="prev" color="primaryMiddle")
           v-icon(left) mdi-arrow-left
           | Anterior
-      v-col.text-right(cols="12", sm="6")
+      v-col.text-right(cols="6")
         v-btn(v-if="next" :to="next" color="primaryMiddle")
           | Siguiente
           v-icon(right) mdi-arrow-right
