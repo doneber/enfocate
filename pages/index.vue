@@ -21,7 +21,7 @@ div
   v-container.super-container(id="cursos" style="padding-top: 85px;")
     v-row(justify='center')
       v-col(md='12')
-        h2.text-h4.text-center.font-weight-regular Cursos de Programación 💻
+        h2.text-h4.text-center.font-weight-medium Cursos de Programación 💻
     v-row
       v-col(v-for='(course, index) in cardCourses' cols='12' sm='6' lg='4' :key="index+'-course'")
         v-card.mx-auto(:to='course.baseEndPoint' height='100%' color="primaryMiddle" )
@@ -33,6 +33,13 @@ div
             span.font-weight-medium(:class="[$vuetify.theme.dark?'':'blue-grey--text text--lighten-1']") {{course.disable?'No disponible':'TOMAR CURSO'}}
             v-spacer
             v-chip.font-weight-bold(:color='course.color' :dark='!$vuetify.theme.dark' :light='$vuetify.theme.dark' ) INF-{{course.id}}
+    v-row(justify='center')
+      v-col(md='12')
+        p.text-center.font-weight-regular.mb-1 ¿Que quieres aprender desarrollo web?
+        p.text-center.font-weight-regular.my-0 
+          | &nbsp;&nbsp; Entra aquí 👉
+          a(href="https://next.doneber.dev/#re-cursos" target="_blank" color="primary") Next Project
+
   div
     v-row.mx-0(style="min-height:15vh")
     v-row.mx-0.primaryMiddle(align='center' justify='center' style="min-height:55vh")
@@ -40,7 +47,7 @@ div
         h2.display-1.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
           | Comunidad
         h3.font-weight-light
-          | Sé parte de la comunidad en <b>Discord</b> y comienza a compartir los demás<br>
+          | Sé parte de la comunidad en <b>Discord</b> y comienza a compartir con los demás<br>
         p.mb-1 👇 <br>
         v-btn.py-4(x-large text tile href="https://discord.doneber.dev" target="_blank" )
           | Quiero unirme!
@@ -48,7 +55,7 @@ div
     v-row.mx-0(style="min-height:15vh")
     v-row(justify='center')
       v-col(md='12')
-        h2.display-1.text-center.font-weight-regular Cursos en Construcción 🚧
+        h2.display-1.text-center.font-weight-medium Cursos en Construcción 🚧
     v-row
       v-col(v-for='(course, index) in fakeCourses' cols='12' sm='6' lg='4' :key="index+'-course'")
         v-card.mx-auto( height='100%' color="primaryMiddle" )
@@ -64,33 +71,45 @@ div
     v-row.mx-0(style="min-height:15vh")
     v-row.mx-0.py-15(align='center' justify='center' style="min-height:500px" class="primaryMiddle")
       v-container
-        v-row.mx-0(style="gap: 2rem")
-          v-col.text-center(cols="12")
-            h2.display-1.font-weight-bold(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+        v-row.mx-0(justify="center" style="gap: 2rem")
+          v-col(cols='12')
+            h2.display-1.font-weight-bold.text-center(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
               | ¿Qué es Enfocate?
-            p.font-weight-light(style="max-width: 650px; margin: auto;")
-              | Enfocate es una aplicación web multiplataforma para <br> brindar contenido educativo orientado a los estudiantes universitarios.
-              | Este proyecto también busca fomentar la enseñanza como <br> forma de aprendizaje y crecimiento personal.
-            h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
-              | Aprende a tu ritmo
-            p.font-weight-light(style="max-width: 650px; margin: auto;")
-              | ¡Toma el control de tu aprendizaje! <br> Encuentra los recursos necesarios para vencer tus materias
-            h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
-              | Crea tu propio contenido
-            p.font-weight-light(style="max-width: 650px; margin: auto;")
-              | ¡Elabora contenido y comparte tus conocimientos! <br> Publica tu material en nuestra plataforma
-            h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
-              | Misión
-            p.font-weight-light(style="max-width: 450px; margin: auto;")
-              | Crear un mundo donde cualquier persona pueda enseñar y aprender con cualquier persona
-            h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
-              | Visión
-            p.font-weight-light(style="max-width: 450px; margin: auto;")
-              | Ser un espacio de educación y referente a nivel nacional para la difusión de la educación autodidacta
-            h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
-              | Valores
-            p.font-weight-light(style="max-width: 450px; margin: auto;")
-              | - Colaboración <br> - Aprendizaje continuo <br> - Compartimos lo que sabemos
+        v-row.mx-0(justify="center" style="gap: 2rem")
+          v-col(cols='12')
+            p.font-weight-light.text-center(style="margin: auto;")
+              | Enfocate es un espacio en internet en forma de cursos enfocado a estudiantes estudiantes universitarios. Aquí, encontrarás contenido educativo y recursos para ayudarte a superar tus materias. También nos enfocamos en fomentar la enseñanza como forma de aprendizaje y crecimiento personal. 🚀
+        v-row.mx-0
+          v-col(cols='12' sm='6' lg='4')
+            v-card.mx-auto(elevation='0')
+              h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+                | Aprende a tu ritmo
+              p.font-weight-light(style="margin: auto;")
+                | Toma el control de tu aprendizaje y aprende a tu propio ritmo. 🎯
+          v-col(cols='12' sm='6' lg='4')
+            v-card.mx-auto(elevation='0')
+              h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+                | Crea tu propio contenido
+              p.font-weight-light(style="margin: auto;")
+                | Elabora contenido y compártelo con otros estudiantes. Puedes publicar tu material en nuestra plataforma.
+          v-col(cols='12' sm='6' lg='4')
+            v-card.mx-auto(elevation='0')
+              h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+                | Nuestra misión
+              p.font-weight-light(style="margin: auto;")
+                | Nuestra misión es crear un mundo donde cualquier persona pueda enseñar y aprender con cualquier persona. 🌍
+          v-col(cols='12' sm='6' lg='4')
+            v-card.mx-auto(elevation='0')
+              h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+                | Nuestra Visión
+              p.font-weight-light(style="margin: auto;")
+                | Ser un espacio de educación y referente a nivel espacial para la difusión de educación autodidacta. 🌌
+          v-col(cols='12' sm='6' lg='4')
+            v-card.mx-auto(elevation='0')
+              h3.text-h5(:class="[this.$vuetify.theme.dark?'orange--text text--lighten-2':'' ]")
+                | Valores
+              p.font-weight-light(style="margin: auto;")
+                | Colaboración 👥<br> Aprendizaje continuo 📈<br> Compartimos lo que sabemos 🤝
   div.super-container
     v-row.mx-0(style="min-height:15vh")
     v-row.mx-0(align='center' justify='center' style="min-height:55vh")
